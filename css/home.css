@@ -84,7 +84,7 @@ body {
 /* Header */
 .header {
   background-color: #0c0c0c;
-  box-shadow: 0px 7px 10px 0px #161616;
+  box-shadow: 0px 7px 10px 0px #101010;
 }
 .header__container {
   display: flex;
@@ -93,19 +93,44 @@ body {
 .header__logo-img img {
   width: 40px;
   height: 40px;
-  margin: 12px 0px 0px 52px;
+  margin: 12px 0px 8px 52px;
+}
+.header__logo-img {
+  transition: all 0.5s ease;
+}
+.header__logo-img:hover {
+  transform: rotateZ(-180deg);
 }
 .header__text {
   margin: 10px 0;
   color: white;
   font-size: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+.header__text:hover {
+  color: rgb(255, 183, 111);
+}
+.header__text:active {
+  color: rgb(255, 132, 0);
+  font-size: 28px;
 }
 .header__orders {
-  margin: 12px 52px 0px 0px;
+  margin: 12px 52px 8px 0px;
 }
 .header__orders img {
   width: 43px;
   height: 43px;
+  transition: all 0.1s ease;
+}
+.header__orders img:active {
+  width: 39px;
+  height: 39px;
+}
+.header__orders img:active {
+  margin: 1px 4px 3px 0px;
 }
 .header__button-orders {
   background-color: #0c0c0c;
