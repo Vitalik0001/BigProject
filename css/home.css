@@ -49,9 +49,11 @@ svg {
 }
 
 /* Styles main settings */
-html, body {
+html,
+body {
   height: 100%;
   min-width: 320px;
+  background-color: #000000;
 }
 
 body {
@@ -70,7 +72,7 @@ body {
   flex: 1 1 auto;
 }
 
-[class*=__container] {
+[class*=container] {
   max-width: 1320px;
   margin: 0 auto;
   padding: 0px 15px;
@@ -78,31 +80,221 @@ body {
 
 /* Header */
 .header {
+  background-color: #0c0c0c;
+}
+.header__container {
   display: flex;
   justify-content: space-between;
-  background-color: #0f0f0e;
 }
 .header__logo-img img {
   width: 40px;
   height: 40px;
-  margin: 12px 0px 0px 120px;
+  margin: 12px 0px 8px 52px;
 }
 .header__text {
   margin: 10px 0;
   color: white;
   font-size: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+.header__text:active {
+  color: rgb(255, 173, 85);
+  font-size: 28px;
 }
 .header__orders {
-  margin: 12px 120px 0px 0px;
+  margin: 12px 52px 8px 0px;
 }
 .header__orders img {
-  width: 40px;
-  height: 40px;
+  width: 43px;
+  height: 43px;
+  transition: all 0.1s ease;
+}
+.header__orders img:active {
+  width: 39px;
+  height: 39px;
+}
+.header__orders img:active {
+  margin: 1px 4px 3px 0px;
+  padding: 3px 0px 0px 3px;
 }
 .header__button-orders {
-  background-color: #0f0f0e;
+  background-color: #0c0c0c;
   cursor: pointer;
 }
 
 /* Main */
+main {
+  box-shadow: 0px 7px 12px 0px #6c6c6c;
+  background-image: url(../img/bg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.main {
+  min-height: 800px;
+}
+.main__content {
+  display: flex;
+  color: white;
+  padding-bottom: 100px;
+}
+.main__text {
+  margin: 100px 0px 0px 45px;
+  max-width: 650px;
+}
+.main__text span {
+  color: rgb(255, 145, 0);
+}
+.main__text h1 {
+  font-size: 90px;
+}
+.main__text p {
+  font-size: 25px;
+  padding: 35px 0px 0px 5px;
+  line-height: 40px;
+}
+.main__human {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 100px 0px 0px 170px;
+}
+.main__human img {
+  min-height: 550px;
+  max-width: 400px;
+}
+.button {
+  display: flex;
+  justify-content: start;
+  margin-top: 60px;
+}
+.button__main {
+  padding: 35px 65px;
+  border-radius: 17px;
+  border: 0;
+  background-color: rgb(255, 128, 1);
+  box-shadow: rgba(255, 255, 255, 0.05) 0 0 8px;
+  letter-spacing: 2px;
+  font-weight: 500;
+  color: rgb(255, 255, 255);
+  text-transform: uppercase;
+  font-size: 35px;
+  transition: all 0.5s ease;
+}
+.button__main:hover {
+  letter-spacing: 4px;
+  background-color: rgb(255, 136, 0);
+  color: hsl(0deg, 0%, 100%);
+  box-shadow: rgb(129, 76, 24) 20px 30px 30px 0px;
+}
+.button__main:active {
+  letter-spacing: 3px;
+  background-color: rgb(222, 107, 0);
+  color: hsl(0deg, 0%, 100%);
+  box-shadow: rgb(255, 157, 0) 0px 0px 0px 0px;
+  transform: translateY(10px);
+  transition: 100ms;
+}
+
 /* Footer */
+footer {
+  background-image: url(../img/bg1.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.footer__container {
+  max-width: 1230px;
+  position: relative;
+  margin: auto;
+  padding-top: 100px;
+}
+.footer__slides {
+  display: none;
+}
+.footer__circles {
+  margin-bottom: 100px;
+  display: flex;
+  justify-content: center;
+}
+
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: 22px;
+  padding: 25px 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.3s ease;
+  border-radius: 0 7px 7px 0;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.next {
+  right: 15px;
+  border-radius: 7px 0 0 7px;
+}
+
+.prev:hover,
+.next:hover {
+  background-color: rgba(255, 191, 64, 0.5);
+}
+
+.circle {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 10px;
+  background-color: rgb(177, 100, 0);
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+}
+
+.active,
+.circle:hover {
+  background-color: #ffffff;
+}
+
+.fade img {
+  border-radius: 17px;
+}
+
+.fade {
+  -webkit-animation-name: fade;
+          animation-name: fade;
+  -webkit-animation-duration: 3s;
+          animation-duration: 3s;
+}
+
+@-webkit-keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.circles-hover {
+  background-color: white;
+  transition: all 0.7s ease;
+}
