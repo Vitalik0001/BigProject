@@ -54,11 +54,18 @@ body {
   height: 100%;
   min-width: 320px;
   background-color: #000000;
+  background: url(../img/bg.jpg) no-repeat center center fixed;
+  background-size: cover;
+  scroll-behavior: smooth;
 }
 
 body {
   font-family: "Prompt", sans-serif;
   font-weight: 400;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
 .wrapper {
@@ -101,7 +108,7 @@ body {
   transition: all 0.2s ease;
 }
 .header__text:active {
-  color: rgb(255, 173, 85);
+  color: rgb(255, 145, 0);
   font-size: 28px;
 }
 .header__orders {
@@ -126,13 +133,6 @@ body {
 }
 
 /* Main */
-main {
-  box-shadow: 0px 7px 12px 0px #6c6c6c;
-  background-image: url(../img/bg.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
 .main {
   min-height: 800px;
 }
@@ -143,24 +143,25 @@ main {
 }
 .main__text {
   margin: 100px 0px 0px 45px;
-  max-width: 650px;
+  max-width: 800px;
 }
 .main__text span {
   color: rgb(255, 145, 0);
 }
 .main__text h1 {
-  font-size: 90px;
+  font-size: 75px;
+  font-weight: 600;
 }
 .main__text p {
   font-size: 25px;
-  padding: 35px 0px 0px 5px;
+  padding: 45px 0px 0px 5px;
   line-height: 40px;
 }
 .main__human {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: 100px 0px 0px 170px;
+  margin: 100px 0px 0px 100px;
 }
 .main__human img {
   min-height: 550px;
@@ -169,10 +170,10 @@ main {
 .button {
   display: flex;
   justify-content: start;
-  margin-top: 60px;
+  margin-top: 80px;
 }
 .button__main {
-  padding: 35px 65px;
+  padding: 25px 45px;
   border-radius: 17px;
   border: 0;
   background-color: rgb(255, 128, 1);
@@ -181,14 +182,14 @@ main {
   font-weight: 500;
   color: rgb(255, 255, 255);
   text-transform: uppercase;
-  font-size: 35px;
+  font-size: 28px;
   transition: all 0.5s ease;
 }
 .button__main:hover {
   letter-spacing: 4px;
   background-color: rgb(255, 136, 0);
   color: hsl(0deg, 0%, 100%);
-  box-shadow: rgb(129, 76, 24) 20px 30px 30px 0px;
+  box-shadow: rgba(129, 76, 24, 0.5) 20px 25px 30px 0px;
 }
 .button__main:active {
   letter-spacing: 3px;
@@ -200,17 +201,11 @@ main {
 }
 
 /* Footer */
-footer {
-  background-image: url(../img/bg1.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
 .footer__container {
-  max-width: 1230px;
+  max-width: 1200px;
   position: relative;
   margin: auto;
-  padding-top: 100px;
+  padding: 100px 0px 0px 0px;
 }
 .footer__slides {
   display: none;
@@ -220,12 +215,20 @@ footer {
   display: flex;
   justify-content: center;
 }
+.footer__title {
+  color: white;
+  text-align: center;
+  font-size: 60px;
+  margin-bottom: 70px;
+  font-weight: 600;
+  padding: 0px 100px;
+}
 
 .prev,
 .next {
   cursor: pointer;
   position: absolute;
-  top: 50%;
+  top: 55%;
   width: auto;
   margin-top: 22px;
   padding: 25px 16px;
@@ -241,7 +244,7 @@ footer {
 }
 
 .next {
-  right: 15px;
+  right: 0px;
   border-radius: 7px 0 0 7px;
 }
 

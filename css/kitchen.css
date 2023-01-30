@@ -57,6 +57,9 @@ html, body {
 body {
   font-family: "Prompt", sans-serif;
   font-weight: 400;
+  background-color: #000000;
+  background: url(../img/bg.jpg) no-repeat center center fixed;
+  background-size: cover;
 }
 
 .wrapper {

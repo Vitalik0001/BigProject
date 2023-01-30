@@ -5,21 +5,21 @@
 *,
 *::before,
 *::after {
-    padding: 0px;
-    margin: 0px;
-    border: none;
-    box-sizing: border-box;
+  padding: 0px;
+  margin: 0px;
+  border: none;
+  box-sizing: border-box;
 }
 
 a,
 a:visited {
-    color: inherit;
-    text-decoration: none;
+  color: inherit;
+  text-decoration: none;
 }
 
 a:focus,
 a:active {
-    outline: none;
+  outline: none;
 }
 
 /* Common */
@@ -31,36 +31,41 @@ h4,
 h5,
 h6,
 p {
-    font-size: inherit;
-    font-weight: inherit;
-    line-height: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
 }
 
-p+p {
-    margin-top: 1em;
+p + p {
+  margin-top: 1em;
 }
 
 ul {
-    list-style: none;
+  list-style: none;
 }
 
 img,
 svg {
-    vertical-align: none;
-    max-width: 100%;
-    height: auto;
+  vertical-align: none;
+  max-width: 100%;
+  height: auto;
 }
 
 /* Styles main settings */
 
-html, body {
-	height: 100%;
-	min-width: 320px;
+html,
+body {
+  height: 100%;
+  min-width: 320px;
 }
 
 body {
-    font-family: 'Prompt', sans-serif;
-    font-weight: 400;
+  font-family: "Prompt", sans-serif;
+  font-weight: 400;
+  background-color: #000000;
+  background: url(../img/bg.jpg) no-repeat center center fixed;
+  background-size: cover;
+  user-select: none;
 }
 
 .wrapper {
@@ -137,5 +142,311 @@ body {
 }
 
 /* Main */
+
+.main {
+  &__container {
+    margin-top: 50px;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__title {
+    color: white;
+    font-size: 55px;
+    font-weight: 600;
+    text-align: center;
+  }
+
+  &__window {
+    border: 3px solid rgb(255, 115, 0);
+    box-shadow: 20px 25px 35px rgb(255, 115, 0, 0.5);
+    border-radius: 17px;
+    padding: 0px 100px 0px 0px;
+    margin: 20px 0px 65px 0px;
+    color: white;
+    display: flex;
+    align-self: center;
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__total {
+    font-size: 25px;
+    margin-bottom: 60px;
+  }
+
+  &__total a {
+    font-weight: 600;
+  } 
+
+  &__total span {
+    font-weight: 500;
+    letter-spacing: 1px;
+    color: rgb(250, 129, 0)
+  }
+}
+
+.window {
+  &__img img {
+    height: 500px;
+    margin-right: 10px;
+  }
+
+  &__list {
+    margin-top: 55px;
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+}
+
+.list {
+  &__order {
+    display: flex;
+    gap: 20px;
+  }
+
+  &__order:nth-child(n) {
+    margin-bottom: 7px;
+  }
+
+  &__order:before {
+    display: block;
+    content: "•";
+  }
+
+  &__order:after {
+    display: block;
+    content: "x1";
+    margin-left: 20px;
+  }
+}
+
+.button {
+  display: flex;
+  gap: 50px;
+  margin-bottom: 50px;
+  &__main-return {
+    padding: 14px 49px;
+    background: none;
+    color: white;
+    border: 2px solid rgb(227, 3, 3);
+    border-radius: 7px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.3s ease;
+  }
+
+  &__main-return:hover {
+    background-color: rgb(227, 3, 3);
+  }
+
+  &__main-return:active {
+    background-color: rgb(176, 0, 0);
+    border: 2px solid rgb(176, 0, 0);
+  }
+
+  &__main-confirm {
+    padding: 15px 50px;
+    background-color: rgb(73, 195, 11);
+    border-radius: 7px;
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.3s ease;
+  }
+
+  &__main-confirm:hover {
+    background-color: rgb(81, 244, 0);
+  }
+
+  &__main-confirm:active {
+    background-color: rgb(60, 154, 14);
+  }
+}
+
+.popup {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  top: 0;
+  left: 0;
+  opacity: 0;
+  visibility: hidden;
+  overflow-y: auto;
+  overflow-x: hidden;
+  transition: all 0.5s ease;
+  &__body {
+    min-height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 10px;
+  }
+
+  &__content {
+    background-color: rgb(250, 142, 18);
+    backdrop-filter: blur(10px);
+    color: white;
+    max-width: 800px;
+    padding: 20px 30px 30px 30px;
+    border-radius: 17px;
+    user-select: none;
+  }
+
+  &__close {
+    margin-left: 97%;
+    color: black;
+    font-weight: 600;
+    font-size: 17px;
+    cursor: pointer;
+  }
+
+  &__title {
+    text-align: center;
+  }
+
+  &__title p {
+    font-size: 45px;
+    font-weight: 600;
+    text-align: center;
+    margin: 0px 50px 20px 50px;
+  }
+
+  &__input {
+    width: 290px;
+    padding: 13px;
+    border: none;
+    border-radius: 4px;
+    box-shadow: 2px 2px 7px 0 rgb(0, 0, 0, 0.2);
+    outline: none;
+    margin-bottom: 20px;
+    &:invalid {
+      animation: justshake 0.3s forwards;
+      color: rgb(255, 0, 0);
+      border: 3px solid red;
+    }
+
+    @keyframes justshake {
+      25% {
+        transform: translateX(5px);
+      }
+    
+      50% {
+        transform: translateX(-5px);
+      }
+    
+      75% {
+        transform: translateX(5px);
+      }
+    
+      100% {
+        transform: translateX-(5px);
+      }
+    }
+
+    &[placeholder] {
+      font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+      font-weight: 600; 
+    }
+  }  
+
+  &__thanks {
+    font-size: 55px;
+    font-weight: 600;
+    margin: 77px 30px;
+    display: none;
+  }
+
+  &__button {
+    text-align: center;
+  }
+
+  &__button button {
+    background-color: white;
+    border: 1px solid rgba(27, 31, 35, 0.15);
+    border-radius: 6px;
+    box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0, rgba(255, 255, 255, 0.25) 0 1px 0 inset;
+    color: #24292E;
+    cursor: pointer;
+    font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    margin-top: 13px;
+    padding: 8px 20px;
+    transition: background-color 0.2s cubic-bezier(0.3, 0, 0.5, 1);
+    user-select: none;
+    touch-action: manipulation;
+
+
+    &:hover {
+      background-color: #F3F4F6;
+      text-decoration: none;
+      transition-duration: 0.1s;
+    }
+
+    &:disabled {
+      background-color: #FAFBFC;
+      border-color: rgba(27, 31, 35, 0.15);
+      color: #959DA5;
+      cursor: default;
+    }
+
+    &:active {
+      background-color: #EDEFF2;
+      box-shadow: rgba(225, 228, 232, 0.2) 0 1px 0 inset;
+      transition: none 0s;
+      border: 1px solid gray;
+    }
+
+    &:focus {
+      outline: 1px transparent;
+    }
+
+    &:before {
+      display: none;
+    }
+  }
+}
+
+.show_popup {
+  opacity: 1;
+  visibility: visible;
+}
+
+.hide_title {
+  display: none;
+}
+
+.show_thanks {
+  display: block;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+input[type=number] {
+    -moz-appearance:textfield; /* Firefox */
+}
 
 /* Footer */

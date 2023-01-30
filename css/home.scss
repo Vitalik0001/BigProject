@@ -58,11 +58,15 @@ body {
   height: 100%;
   min-width: 320px;
   background-color: #000000;
+  background: url(../img/bg.jpg) no-repeat center center fixed;
+  background-size: cover;
+  scroll-behavior: smooth;
 }
 
 body {
   font-family: "Prompt", sans-serif;
   font-weight: 400;
+  user-select: none;
 }
 
 .wrapper {
@@ -108,7 +112,7 @@ body {
   }
 
   &__text:active {
-    color: rgb(255, 173, 85);
+    color: rgb(255, 145, 0);
     font-size: 28px;
   }
 
@@ -140,13 +144,6 @@ body {
 
 /* Main */
 
-main {
-  box-shadow: 0px 7px 12px 0px #6c6c6c;
-  background-image: url(../img/bg.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
 .main {
   min-height: 800px;
   &__content {
@@ -157,7 +154,7 @@ main {
 
   &__text {
     margin: 100px 0px 0px 45px;
-    max-width: 650px;
+    max-width: 800px;
   }
 
   &__text span {
@@ -165,12 +162,13 @@ main {
   }
 
   &__text h1 {
-    font-size: 90px;
+    font-size: 75px;
+    font-weight: 600;
   }
 
   &__text p {
     font-size: 25px;
-    padding: 35px 0px 0px 5px;
+    padding: 45px 0px 0px 5px;
     line-height: 40px;
   }
 
@@ -178,7 +176,7 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin: 100px 0px 0px 170px;
+    margin: 100px 0px 0px 100px;
   }
 
   &__human img {
@@ -195,9 +193,9 @@ main {
 .button {
   display: flex;
   justify-content: start;
-  margin-top: 60px;
+  margin-top: 80px;
   &__main {
-    padding: 35px 65px;
+    padding: 25px 45px;
     border-radius: 17px;
     border: 0;
     background-color: rgb(255, 128, 1);
@@ -206,7 +204,7 @@ main {
     font-weight: 500;
     color: rgb(255, 255, 255);
     text-transform: uppercase;
-    font-size: 35px;
+    font-size: 28px;
     transition: all 0.5s ease;
   }
 
@@ -214,7 +212,7 @@ main {
     letter-spacing: 4px;
     background-color: rgb(255, 136, 0);
     color: hsl(0, 0%, 100%);
-    box-shadow: rgb(129, 76, 24) 20px 30px 30px 0px;
+    box-shadow: rgb(129, 76, 24, 0.5) 20px 25px 30px 0px;
   }
 
   &__main:active {
@@ -229,18 +227,12 @@ main {
 
 /* Footer */
 
-footer {
-  background-image: url(../img/bg1.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
 .footer {
   &__container {
-    max-width: 1230px;
+    max-width: 1200px;
     position: relative;
     margin: auto;
-    padding-top: 100px;
+    padding: 100px 0px 0px 0px;
   }
 
   &__slides {
@@ -252,13 +244,22 @@ footer {
     display: flex;
     justify-content: center;
   }
+
+  &__title {
+    color: white;
+    text-align: center;
+    font-size: 60px;
+    margin-bottom: 70px;
+    font-weight: 600;
+    padding: 0px 100px;
+  }
 }
 
 .prev,
 .next {
   cursor: pointer;
   position: absolute;
-  top: 50%;
+  top: 55%;
   width: auto;
   margin-top: 22px;
   padding: 25px 16px;
@@ -274,7 +275,7 @@ footer {
 }
 
 .next {
-  right: 15px;
+  right: 0px;
   border-radius: 7px 0 0 7px;
 }
 

@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* Links */
 @import url(https://fonts.googleapis.com/css?family=Prompt:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic);
 *,
@@ -49,7 +50,8 @@ svg {
 }
 
 /* Styles main settings */
-html, body {
+html,
+body {
   height: 100%;
   min-width: 320px;
 }
@@ -57,6 +59,13 @@ html, body {
 body {
   font-family: "Prompt", sans-serif;
   font-weight: 400;
+  background-color: #000000;
+  background: url(../img/bg.jpg) no-repeat center center fixed;
+  background-size: cover;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
 .wrapper {
@@ -124,4 +133,291 @@ body {
 }
 
 /* Main */
+.main__container {
+  margin-top: 50px;
+}
+.main__content {
+  display: flex;
+  flex-direction: column;
+}
+.main__title {
+  color: white;
+  font-size: 55px;
+  font-weight: 600;
+  text-align: center;
+}
+.main__window {
+  border: 3px solid rgb(255, 115, 0);
+  box-shadow: 20px 25px 35px rgba(255, 115, 0, 0.5);
+  border-radius: 17px;
+  padding: 0px 100px 0px 0px;
+  margin: 20px 0px 65px 0px;
+  color: white;
+  display: flex;
+  align-self: center;
+}
+.main__buttons {
+  display: flex;
+  justify-content: center;
+}
+.main__total {
+  font-size: 25px;
+  margin-bottom: 60px;
+}
+.main__total a {
+  font-weight: 600;
+}
+.main__total span {
+  font-weight: 500;
+  letter-spacing: 1px;
+  color: rgb(250, 129, 0);
+}
+
+.window__img img {
+  height: 500px;
+  margin-right: 10px;
+}
+.window__list {
+  margin-top: 55px;
+}
+.window__text {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.list__order {
+  display: flex;
+  gap: 20px;
+}
+.list__order:nth-child(n) {
+  margin-bottom: 7px;
+}
+.list__order:before {
+  display: block;
+  content: "•";
+}
+.list__order:after {
+  display: block;
+  content: "x1";
+  margin-left: 20px;
+}
+
+.button {
+  display: flex;
+  gap: 50px;
+  margin-bottom: 50px;
+}
+.button__main-return {
+  padding: 14px 49px;
+  background: none;
+  color: white;
+  border: 2px solid rgb(227, 3, 3);
+  border-radius: 7px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.3s ease;
+}
+.button__main-return:hover {
+  background-color: rgb(227, 3, 3);
+}
+.button__main-return:active {
+  background-color: rgb(176, 0, 0);
+  border: 2px solid rgb(176, 0, 0);
+}
+.button__main-confirm {
+  padding: 15px 50px;
+  background-color: rgb(73, 195, 11);
+  border-radius: 7px;
+  color: white;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.3s ease;
+}
+.button__main-confirm:hover {
+  background-color: rgb(81, 244, 0);
+}
+.button__main-confirm:active {
+  background-color: rgb(60, 154, 14);
+}
+
+.popup {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  top: 0;
+  left: 0;
+  opacity: 0;
+  visibility: hidden;
+  overflow-y: auto;
+  overflow-x: hidden;
+  transition: all 0.5s ease;
+}
+.popup__body {
+  min-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 10px;
+}
+.popup__content {
+  background-color: rgb(250, 142, 18);
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  color: white;
+  max-width: 800px;
+  padding: 20px 30px 30px 30px;
+  border-radius: 17px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+.popup__close {
+  margin-left: 97%;
+  color: black;
+  font-weight: 600;
+  font-size: 17px;
+  cursor: pointer;
+}
+.popup__title {
+  text-align: center;
+}
+.popup__title p {
+  font-size: 45px;
+  font-weight: 600;
+  text-align: center;
+  margin: 0px 50px 20px 50px;
+}
+.popup__input {
+  width: 290px;
+  padding: 13px;
+  border: none;
+  border-radius: 4px;
+  box-shadow: 2px 2px 7px 0 rgba(0, 0, 0, 0.2);
+  outline: none;
+  margin-bottom: 20px;
+}
+.popup__input:invalid {
+  -webkit-animation: justshake 0.3s forwards;
+          animation: justshake 0.3s forwards;
+  color: rgb(255, 0, 0);
+  border: 3px solid red;
+}
+@-webkit-keyframes justshake {
+  25% {
+    transform: translateX(5px);
+  }
+  50% {
+    transform: translateX(-5px);
+  }
+  75% {
+    transform: translateX(5px);
+  }
+  100% {
+    transform: translateX-(5px);
+  }
+}
+@keyframes justshake {
+  25% {
+    transform: translateX(5px);
+  }
+  50% {
+    transform: translateX(-5px);
+  }
+  75% {
+    transform: translateX(5px);
+  }
+  100% {
+    transform: translateX-(5px);
+  }
+}
+.popup__input[placeholder] {
+  font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  font-weight: 600;
+}
+.popup__thanks {
+  font-size: 55px;
+  font-weight: 600;
+  margin: 77px 30px;
+  display: none;
+}
+.popup__button {
+  text-align: center;
+}
+.popup__button button {
+  background-color: white;
+  border: 1px solid rgba(27, 31, 35, 0.15);
+  border-radius: 6px;
+  box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0, rgba(255, 255, 255, 0.25) 0 1px 0 inset;
+  color: #24292E;
+  cursor: pointer;
+  font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  margin-top: 13px;
+  padding: 8px 20px;
+  transition: background-color 0.2s cubic-bezier(0.3, 0, 0.5, 1);
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  touch-action: manipulation;
+}
+.popup__button button:hover {
+  background-color: #F3F4F6;
+  text-decoration: none;
+  transition-duration: 0.1s;
+}
+.popup__button button:disabled {
+  background-color: #FAFBFC;
+  border-color: rgba(27, 31, 35, 0.15);
+  color: #959DA5;
+  cursor: default;
+}
+.popup__button button:active {
+  background-color: #EDEFF2;
+  box-shadow: rgba(225, 228, 232, 0.2) 0 1px 0 inset;
+  transition: none 0s;
+  border: 1px solid gray;
+}
+.popup__button button:focus {
+  outline: 1px transparent;
+}
+.popup__button button:before {
+  display: none;
+}
+
+.show_popup {
+  opacity: 1;
+  visibility: visible;
+}
+
+.hide_title {
+  display: none;
+}
+
+.show_thanks {
+  display: block;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  /* display: none; <- Crashes Chrome on hover */
+  -webkit-appearance: none;
+  margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+input[type=number] {
+  -moz-appearance: textfield; /* Firefox */
+}
+
 /* Footer */
