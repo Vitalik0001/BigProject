@@ -145,11 +145,10 @@ body {
 /* Main */
 
 .main {
-  min-height: 800px;
   &__content {
     display: flex;
     color: white;
-    padding-bottom: 100px;
+    padding-bottom: 120px;
   }
 
   &__text {
@@ -182,12 +181,6 @@ body {
   &__human img {
     min-height: 550px;
     max-width: 400px;
-  }
-
-  &__button {
-  }
-
-  &__slider {
   }
 }
 .button {
@@ -229,10 +222,10 @@ body {
 
 .footer {
   &__container {
-    max-width: 1200px;
+    max-width: 1320px;
     position: relative;
     margin: auto;
-    padding: 100px 0px 0px 0px;
+    padding: 100px 60px 0px 60px;
   }
 
   &__slides {
@@ -271,11 +264,8 @@ body {
   user-select: none;
 }
 
-.prev {
-}
-
 .next {
-  right: 0px;
+  right: 60px;
   border-radius: 7px 0 0 7px;
 }
 
@@ -321,4 +311,223 @@ body {
 .circles-hover {
   background-color: white;
   transition: all 0.7s ease;
+}
+
+/* Adaptive */
+
+@media (max-width: 1315px) {
+  .main {
+    &__text h1 {
+      font-size: 55px;
+    }
+
+    &__text p {
+      font-size: 19px;
+    }
+
+    &__human {
+      margin: 100px 0px 0px 40px;
+    }
+
+    &__human img {
+      min-height: 460px;
+      max-width: 340px;
+    }
+  }
+
+  .footer {
+    &__title {
+      font-size: 48px;
+      margin-bottom: 70px;
+      padding: 0px 70px;
+    }
+  }
+
+  .button {
+    &__main {
+      padding: 23px 40px;
+      font-size: 26px;
+    }
+  }
+
+  .prev,
+  .next {
+    top: 57%;
+  }
+}
+
+@media (max-width: 998px) {
+  .main {
+    &__text {
+      margin-right: 45px;
+    }
+
+    &__text h1 {
+      font-size: 55px;
+    }
+
+    &__text p {
+      font-size: 19px;
+      padding: 40px 0px 0px 5px;
+    }
+
+    &__human {
+      display: none;
+    }
+  }
+
+  .footer {
+    &__title {
+      font-size: 48px;
+      margin-bottom: 70px;
+      padding: 0px 70px;
+    }
+  }
+
+  .button {
+    margin-top: 70px;
+    &__main {
+      padding: 21px 38px;
+      font-size: 26px;
+      border-radius: 15px;
+    }
+  }
+
+  .prev,
+  .next {
+    top: 63%;
+  }
+}
+
+@media (max-width: 662px) {
+  .header {
+    &__logo-img img {
+      width: 37px;
+      height: 37px;
+      margin: 12px 0px 8px 22px;
+    }
+
+    &__text {
+      font-size: 25px;
+    }
+
+    &__orders {
+      margin: 12px 12px 8px 0px;
+    }
+
+    &__orders img {
+      width: 40px;
+      height: 40px;
+    }
+  }
+
+  .main {
+    &__text {
+      margin: 50px 15px 0px 15px;
+    }
+
+    &__text h1 {
+      font-size: 37px;
+    }
+
+    &__text p {
+      font-size: 17px;
+      padding: 30px 0px 0px 5px;
+    }
+  }
+
+  .footer {
+    &__container {
+      padding: 50px 25px 0px 25px;
+    }
+
+    &__title {
+      font-size: 35px;
+      margin-bottom: 40px;
+      padding: 0px 10px;
+    }
+  }
+
+  .button {
+    margin-top: 50px;
+    &__main {
+      padding: 17px 32px;
+      font-size: 23px;
+      border-radius: 15px;
+    }
+  }
+
+  .prev,
+  .next {
+    top: 59%;
+    padding: 20px 12px;
+  }
+
+  .next {
+    right: 6%;
+  }
+}
+
+@media (max-width: 425px) {
+  .main {
+    &__text {
+      margin: 50px 15px 0px 15px;
+    }
+
+    &__text h1 {
+      font-size: 30px;
+    }
+
+    &__text p {
+      font-size: 14px;
+      padding: 30px 0px 0px 5px;
+    }
+  }
+
+  .button {
+    margin-top: 50px;
+    &__main {
+      padding: 17px 32px;
+      font-size: 18px;
+      border-radius: 12px;
+    }
+  }
+
+  .prev,
+  .next {
+    top: 64%;
+    padding: 20px 12px;
+  }
+
+  .next {
+    right: 7%;
+  }
+
+  .footer {
+    &__title {
+      font-size: 30px;
+      margin-bottom: 40px;
+      padding: 0px 10px;
+    }
+  }
+}
+
+@media (max-width: 425px) {
+  .main {
+    &__text h1 {
+      font-size: 25px;
+    }
+
+    &__text p {
+      font-size: 13px;
+      padding: 30px 0px 0px 5px;
+      line-height: 35px;
+    }
+  }
+
+  .prev,
+  .next {
+    top: 58%;
+    padding: 20px 12px;
+  }
 }

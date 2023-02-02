@@ -183,12 +183,12 @@ body {
 
   &__total a {
     font-weight: 600;
-  } 
+  }
 
   &__total span {
     font-weight: 500;
     letter-spacing: 1px;
-    color: rgb(250, 129, 0)
+    color: rgb(250, 129, 0);
   }
 }
 
@@ -278,6 +278,8 @@ body {
   }
 }
 
+/* Popup */
+
 .popup {
   position: fixed;
   height: 100%;
@@ -346,25 +348,26 @@ body {
       25% {
         transform: translateX(5px);
       }
-    
+
       50% {
         transform: translateX(-5px);
       }
-    
+
       75% {
         transform: translateX(5px);
       }
-    
+
       100% {
         transform: translateX-(5px);
       }
     }
 
     &[placeholder] {
-      font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
-      font-weight: 600; 
+      font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial,
+        sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+      font-weight: 600;
     }
-  }  
+  }
 
   &__thanks {
     font-size: 55px;
@@ -381,10 +384,12 @@ body {
     background-color: white;
     border: 1px solid rgba(27, 31, 35, 0.15);
     border-radius: 6px;
-    box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0, rgba(255, 255, 255, 0.25) 0 1px 0 inset;
-    color: #24292E;
+    box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0,
+      rgba(255, 255, 255, 0.25) 0 1px 0 inset;
+    color: #24292e;
     cursor: pointer;
-    font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+    font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial,
+      sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
     font-size: 14px;
     font-weight: 500;
     line-height: 20px;
@@ -394,22 +399,21 @@ body {
     user-select: none;
     touch-action: manipulation;
 
-
     &:hover {
-      background-color: #F3F4F6;
+      background-color: #f3f4f6;
       text-decoration: none;
       transition-duration: 0.1s;
     }
 
     &:disabled {
-      background-color: #FAFBFC;
+      background-color: #fafbfc;
       border-color: rgba(27, 31, 35, 0.15);
-      color: #959DA5;
+      color: #959da5;
       cursor: default;
     }
 
     &:active {
-      background-color: #EDEFF2;
+      background-color: #edeff2;
       box-shadow: rgba(225, 228, 232, 0.2) 0 1px 0 inset;
       transition: none 0s;
       border: 1px solid gray;
@@ -440,13 +444,212 @@ body {
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-    /* display: none; <- Crashes Chrome on hover */
-    -webkit-appearance: none;
-    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+  /* display: none; <- Crashes Chrome on hover */
+  -webkit-appearance: none;
+  margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
 }
 
-input[type=number] {
-    -moz-appearance:textfield; /* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield; /* Firefox */
 }
 
-/* Footer */
+/* Adaptive */
+
+@media (max-width: 960px) {
+  .window__img img {
+    height: 370px;
+    margin-right: 10px;
+  }
+}
+
+@media (max-width: 710px) {
+  .header {
+    &__logo-img img {
+      width: 37px;
+      height: 37px;
+      margin: 12px 0px 8px 22px;
+    }
+
+    &__text {
+      font-size: 25px;
+    }
+
+    &__orders {
+      margin: 12px 12px 8px 0px;
+    }
+
+    &__orders img {
+      width: 40px;
+      height: 40px;
+    }
+  }
+
+  .window__img img {
+    height: 180px;
+  }
+
+  .window__img {
+    display: flex;
+    align-items: center;
+  }
+
+  .main {
+    &__total {
+      font-size: 22px;
+      margin-top: 20px;
+      margin-bottom: 40px;
+    }
+
+    &__window {
+      padding: 0px 25px 0px 0px;
+    }
+
+    &__window {
+      box-shadow: 10px 15px 35px rgb(255, 115, 0, 0.5);
+    }
+  }
+
+  .list {
+    margin-top: 40px;
+    &__order {
+      font-size: 14px;
+    }
+  }
+
+  .button {
+    gap: 40px;
+  }
+}
+
+@media (max-width: 420px) {
+  .header {
+    &__logo-img img {
+      width: 37px;
+      height: 37px;
+      margin: 12px 0px 8px 24px;
+    }
+
+    &__orders {
+      margin: 12px 14px 8px 0px;
+    }
+  }
+
+  .main {
+    &__total {
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+
+    &__title {
+      font-size: 45px;
+    }
+  }
+
+  .window__img {
+    align-items: start;
+    margin-top: 30px;
+  }
+
+  .window__img img {
+    height: 130px;
+    margin-right: 0;
+  }
+
+  .list {
+    margin-top: 40px;
+    &__order {
+      font-size: 11px;
+    }
+  }
+
+  .button {
+    gap: 30px;
+    &__main-return {
+      padding: 13px 29px;
+      font-size: 18px;
+    }
+
+    &__main-confirm {
+      padding: 14px 30px;
+      font-size: 18px;
+    }
+  }
+}
+
+@media (max-width: 420px) {
+  .header {
+    &__logo-img img {
+      width: 37px;
+      height: 37px;
+      margin: 12px 0px 8px 10px;
+    }
+
+    &__orders {
+      margin: 12px 0px 8px 0px;
+    }
+  }
+
+  .button {
+    gap: 30px;
+    &__main-return {
+      padding: 13px 33px;
+      font-size: 17px;
+    }
+
+    &__main-confirm {
+      padding: 14px 34px;
+      font-size: 17px;
+    }
+  }
+
+  .popup {
+    &__thanks {
+      font-size: 30px;
+    }
+  }
+}
+
+/* Adaptive for popup */
+
+@media (max-width: 515px) {
+  .popup {
+    &__title p {
+      font-size: 35px;
+      margin: 0px 0px 30px 0px;
+    }
+
+    &__content {
+      padding: 20px 30px 25px 30px;
+    }
+  }
+}
+
+@media (max-width: 400px) {
+  .popup {
+    &__title p {
+      font-size: 35px;
+      margin: 0px 0px 30px 0px;
+    }
+
+    &__content {
+      padding: 20px 25px 25px 25px;
+    }
+  }
+}
+
+@media (max-width: 370px) {
+  .popup {
+    &__input {
+      width: 240px;
+    }
+
+    &__title p {
+      font-size: 35px;
+      margin: 0px 0px 30px 0px;
+    }
+
+    &__content {
+      padding: 20px 30px 25px 30px;
+    }
+  }
+}
