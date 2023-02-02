@@ -1,8 +1,10 @@
 /* Slider */
 
+
 const slides = document.querySelectorAll(".footer__slides"),
   prev = document.querySelector(".prev"),
   next = document.querySelector(".next");
+console.log(slides);
 
 let circles = document.querySelectorAll(".circle");
 let slideIndex = 1;
@@ -18,7 +20,7 @@ function setSlidesInterval() {
     checkIndex(slideIndex);
     showSlides();
     changeColorOfCircles();
-  }, 2000);
+  }, 4000);
 }
 setSlidesInterval();
 
@@ -31,7 +33,7 @@ function checkIndex(n) {
   if (n > slides.length) {
     slideIndex = 1;
   }
-  if (n < 1) {
+  else if (n < 1) {
     slideIndex = slides.length;
   }
 }
