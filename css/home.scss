@@ -58,11 +58,15 @@ body {
   height: 100%;
   min-width: 320px;
   background-color: #000000;
+  background: url(../img/bg.jpg) no-repeat center center fixed;
+  background-size: cover;
+  scroll-behavior: smooth;
 }
 
 body {
   font-family: "Prompt", sans-serif;
   font-weight: 400;
+  user-select: none;
 }
 
 .wrapper {
@@ -108,7 +112,7 @@ body {
   }
 
   &__text:active {
-    color: rgb(255, 173, 85);
+    color: rgb(255, 145, 0);
     font-size: 28px;
   }
 
@@ -140,24 +144,16 @@ body {
 
 /* Main */
 
-main {
-  box-shadow: 0px 7px 12px 0px #6c6c6c;
-  background-image: url(../img/bg.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
 .main {
-  min-height: 800px;
   &__content {
     display: flex;
     color: white;
-    padding-bottom: 100px;
+    padding-bottom: 120px;
   }
 
   &__text {
     margin: 100px 0px 0px 45px;
-    max-width: 650px;
+    max-width: 800px;
   }
 
   &__text span {
@@ -165,12 +161,13 @@ main {
   }
 
   &__text h1 {
-    font-size: 90px;
+    font-size: 75px;
+    font-weight: 600;
   }
 
   &__text p {
     font-size: 25px;
-    padding: 35px 0px 0px 5px;
+    padding: 45px 0px 0px 5px;
     line-height: 40px;
   }
 
@@ -178,26 +175,20 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin: 100px 0px 0px 170px;
+    margin: 100px 0px 0px 100px;
   }
 
   &__human img {
     min-height: 550px;
     max-width: 400px;
   }
-
-  &__button {
-  }
-
-  &__slider {
-  }
 }
 .button {
   display: flex;
   justify-content: start;
-  margin-top: 60px;
+  margin-top: 80px;
   &__main {
-    padding: 35px 65px;
+    padding: 25px 45px;
     border-radius: 17px;
     border: 0;
     background-color: rgb(255, 128, 1);
@@ -206,7 +197,7 @@ main {
     font-weight: 500;
     color: rgb(255, 255, 255);
     text-transform: uppercase;
-    font-size: 35px;
+    font-size: 28px;
     transition: all 0.5s ease;
   }
 
@@ -214,7 +205,7 @@ main {
     letter-spacing: 4px;
     background-color: rgb(255, 136, 0);
     color: hsl(0, 0%, 100%);
-    box-shadow: rgb(129, 76, 24) 20px 30px 30px 0px;
+    box-shadow: rgb(129, 76, 24, 0.5) 20px 25px 30px 0px;
   }
 
   &__main:active {
@@ -229,18 +220,12 @@ main {
 
 /* Footer */
 
-footer {
-  background-image: url(../img/bg1.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
 .footer {
   &__container {
-    max-width: 1230px;
+    max-width: 1320px;
     position: relative;
     margin: auto;
-    padding-top: 100px;
+    padding: 100px 60px 0px 60px;
   }
 
   &__slides {
@@ -252,13 +237,22 @@ footer {
     display: flex;
     justify-content: center;
   }
+
+  &__title {
+    color: white;
+    text-align: center;
+    font-size: 60px;
+    margin-bottom: 70px;
+    font-weight: 600;
+    padding: 0px 100px;
+  }
 }
 
 .prev,
 .next {
   cursor: pointer;
   position: absolute;
-  top: 50%;
+  top: 55%;
   width: auto;
   margin-top: 22px;
   padding: 25px 16px;
@@ -270,11 +264,8 @@ footer {
   user-select: none;
 }
 
-.prev {
-}
-
 .next {
-  right: 15px;
+  right: 60px;
   border-radius: 7px 0 0 7px;
 }
 
@@ -320,4 +311,223 @@ footer {
 .circles-hover {
   background-color: white;
   transition: all 0.7s ease;
+}
+
+/* Adaptive */
+
+@media (max-width: 1315px) {
+  .main {
+    &__text h1 {
+      font-size: 55px;
+    }
+
+    &__text p {
+      font-size: 19px;
+    }
+
+    &__human {
+      margin: 100px 0px 0px 40px;
+    }
+
+    &__human img {
+      min-height: 460px;
+      max-width: 340px;
+    }
+  }
+
+  .footer {
+    &__title {
+      font-size: 48px;
+      margin-bottom: 70px;
+      padding: 0px 70px;
+    }
+  }
+
+  .button {
+    &__main {
+      padding: 23px 40px;
+      font-size: 26px;
+    }
+  }
+
+  .prev,
+  .next {
+    top: 57%;
+  }
+}
+
+@media (max-width: 998px) {
+  .main {
+    &__text {
+      margin-right: 45px;
+    }
+
+    &__text h1 {
+      font-size: 55px;
+    }
+
+    &__text p {
+      font-size: 19px;
+      padding: 40px 0px 0px 5px;
+    }
+
+    &__human {
+      display: none;
+    }
+  }
+
+  .footer {
+    &__title {
+      font-size: 48px;
+      margin-bottom: 70px;
+      padding: 0px 70px;
+    }
+  }
+
+  .button {
+    margin-top: 70px;
+    &__main {
+      padding: 21px 38px;
+      font-size: 26px;
+      border-radius: 15px;
+    }
+  }
+
+  .prev,
+  .next {
+    top: 63%;
+  }
+}
+
+@media (max-width: 662px) {
+  .header {
+    &__logo-img img {
+      width: 37px;
+      height: 37px;
+      margin: 12px 0px 8px 22px;
+    }
+
+    &__text {
+      font-size: 25px;
+    }
+
+    &__orders {
+      margin: 12px 12px 8px 0px;
+    }
+
+    &__orders img {
+      width: 40px;
+      height: 40px;
+    }
+  }
+
+  .main {
+    &__text {
+      margin: 50px 15px 0px 15px;
+    }
+
+    &__text h1 {
+      font-size: 37px;
+    }
+
+    &__text p {
+      font-size: 17px;
+      padding: 30px 0px 0px 5px;
+    }
+  }
+
+  .footer {
+    &__container {
+      padding: 50px 25px 0px 25px;
+    }
+
+    &__title {
+      font-size: 35px;
+      margin-bottom: 40px;
+      padding: 0px 10px;
+    }
+  }
+
+  .button {
+    margin-top: 50px;
+    &__main {
+      padding: 17px 32px;
+      font-size: 23px;
+      border-radius: 15px;
+    }
+  }
+
+  .prev,
+  .next {
+    top: 59%;
+    padding: 20px 12px;
+  }
+
+  .next {
+    right: 6%;
+  }
+}
+
+@media (max-width: 425px) {
+  .main {
+    &__text {
+      margin: 50px 15px 0px 15px;
+    }
+
+    &__text h1 {
+      font-size: 30px;
+    }
+
+    &__text p {
+      font-size: 14px;
+      padding: 30px 0px 0px 5px;
+    }
+  }
+
+  .button {
+    margin-top: 50px;
+    &__main {
+      padding: 17px 32px;
+      font-size: 18px;
+      border-radius: 12px;
+    }
+  }
+
+  .prev,
+  .next {
+    top: 64%;
+    padding: 20px 12px;
+  }
+
+  .next {
+    right: 7%;
+  }
+
+  .footer {
+    &__title {
+      font-size: 30px;
+      margin-bottom: 40px;
+      padding: 0px 10px;
+    }
+  }
+}
+
+@media (max-width: 425px) {
+  .main {
+    &__text h1 {
+      font-size: 25px;
+    }
+
+    &__text p {
+      font-size: 13px;
+      padding: 30px 0px 0px 5px;
+      line-height: 35px;
+    }
+  }
+
+  .prev,
+  .next {
+    top: 58%;
+    padding: 20px 12px;
+  }
 }
