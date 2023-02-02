@@ -29,7 +29,7 @@ window.addEventListener("load", () => {
             closeInstructionsModalAtAll()
         })
         instructionsModal.classList.add('show_popup');
-        body.style.overflow = 'hidden';
+
         closeInstructionsModal();
         closeInstructionsModalOutside();
 
@@ -251,7 +251,7 @@ window.addEventListener("load", () => {
 
     }
 
-    let savedTimeOut = false;
+
 
     function setToEdit() {
         allowedToDrag = false

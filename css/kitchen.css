@@ -311,11 +311,6 @@ header {
   padding: 0 10px;
   margin: 0 auto;
 }
-@media (max-width: 600px) {
-  .burger-maker__container {
-    max-height: 165vh;
-  }
-}
 .burger-maker__kitchen {
   display: grid;
   grid-template-columns: 3fr 12fr 3fr;
@@ -426,6 +421,12 @@ header {
   /* Hide scrollbar for Chrome, Safari and Opera */
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
+}
+@media (max-width: 600px) {
+  .kitchen-ingridients {
+    display: flex;
+    flex-direction: column;
+  }
 }
 .kitchen-ingridients::-webkit-scrollbar {
   display: none;
