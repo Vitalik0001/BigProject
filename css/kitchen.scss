@@ -333,19 +333,20 @@ header{
     // max-width: 1420px;
     padding: 0 10px ;
     margin: 0 auto;
-    @media (max-width:600px ){
-      
+    @media (max-width:550px ){
+      max-height: 165vh;
       
     }
   }
 
   &__kitchen {
+    
     display: grid;
     grid-template-columns: 3fr 12fr 3fr;
     @media (max-width: 850px) {
       grid-template-columns: 4fr 12fr 4fr;
     }
-    @media (max-width: 600px) {
+    @media (max-width: 550px) {
       display: flex;
       flex-direction: column;
       
@@ -357,12 +358,12 @@ header{
   position: relative;
   margin: auto 0;
   padding-top: -50px;
-  @media (max-width: 600px) {
-    
+  @media (max-width: 550px) {
     max-height: 450px;
     rotate: 90deg;
     max-width: 200px;
     margin: 0 auto;
+    margin-top: 30px;
     .draggable{
       rotate: 270deg;
       margin: 50px 0px;
@@ -371,15 +372,15 @@ header{
   
 }
 .ingridients-right-nav{
-  @media (max-width:600px) {
-    order: 2;
-    transform: translateX(-150px);
+  @media (max-width:550px) {
+    order: 1;
+    
   }
 }
 .ingridients-left-nav{
-  @media (max-width:600px) {
+  @media (max-width:550px) {
     order: 3;
-    transform: translateX(-450px);
+    
   }
 }
 .arrow-previous{
@@ -441,10 +442,7 @@ header{
   
 }
 .kitchen-ingridients {
-  @media (max-width:600px){
-    display: flex;
-    flex-direction: column;
-  }
+  
   scroll-behavior: smooth;
   
   
@@ -491,7 +489,7 @@ header{
   width: 100%;
   
   min-height:25vh;
-  @media( max-width:600px) {
+  @media( max-width:550px) {
     min-height:0;
   }
 
@@ -708,10 +706,10 @@ header{
 }
 
 .kitchen-center{
-  @media (max-width:600px) {
-    order: 1;
+  @media (max-width:550px) {
+    order: 2;
   }
-  
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -756,7 +754,7 @@ header{
   
 
   &__main-confirm {
-    padding: 15px 50px;
+    padding: 15px 40px;
     background-color: rgb(73, 195, 11);
     border-radius: 7px;
     color: white;
@@ -858,6 +856,28 @@ header{
   
 }
 
-
+.rotate-gif-modal{
+  z-index: 100000000000000;
+  position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    height: 100vh;
+    width: 100vw;
+    background-color: #000;
+    display: none;
+    
+    .rotate-gif{
+      background-image: url(../img/kitchen/rotate-phone.gif);
+    background-position-x: center;
+    background-position-y: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 50vw;
+    height: 90vh;
+    margin: auto;
+    }
+}
 
 /* Footer */

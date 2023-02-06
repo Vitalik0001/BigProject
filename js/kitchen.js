@@ -19,8 +19,33 @@ window.addEventListener("load", () => {
         instructionsButtonOk = document.querySelector('.instructions__main-ok'),
         instructionsModal = document.querySelector('.instructions'),
         instructionsModalBody = document.querySelector('.instructions__body'),
-        instructionsModalCloseButton = document.querySelector('.instructions__close');
+        instructionsModalCloseButton = document.querySelector('.instructions__close'),
 
+        wrapper = document.querySelector('.wrapper');
+    //
+    const rotateModal = document.querySelector('.rotate-gif-modal');
+    if (window.matchMedia("(orientation:portrait)").matches) {
+        rotateModal.style.display = 'block';
+        body.style.overflow = 'hidden';
+        wrapper.style.display = 'none';
+    }
+    function checkOrientation() {
+        if (window.matchMedia("(orientation:portrait)").matches) {
+
+            rotateModal.style.display = 'none';
+            body.style.overflow = '';
+            wrapper.style.display = 'block';
+
+        } else {
+            wrapper.style.display = 'none';
+            rotateModal.style.display = 'block';
+            body.style.overflow = 'hidden';
+            // if (body.height < 400)
+            //     burgerMakerKitchen.style.marginTop = '25vh';
+        }
+    }
+
+    window.addEventListener("orientationchange", checkOrientation);
 
     //instructions
     function showInstructionsModal() {
@@ -101,6 +126,7 @@ window.addEventListener("load", () => {
         const draggable = document.querySelector('.dragging');
         draggable.remove();
         firstCalled = true;
+
     }
 
 
@@ -165,6 +191,7 @@ window.addEventListener("load", () => {
         const zIndices = [...Array(draggablesInBurger.length).keys()].reverse().map(i => i);
 
         draggablesInBurger.forEach((draggable, i) => {
+
             draggable.style.zIndex = zIndices[i];
             draggable.style.cursor = 'move';
         })
@@ -214,11 +241,13 @@ window.addEventListener("load", () => {
 
     function setToSave() {
 
-        clearButton.innerHTML = 'Clear';
+
+
+        clearButton.innerHTML = 'Delete';
 
         allowedToDrag = true;
 
-        saveButton.innerHTML = 'Save';
+        saveButton.innerHTML = 'Preview';
         isSaved = false;
         document.querySelectorAll('.draggable').forEach(ingridient => {
 
@@ -235,7 +264,7 @@ window.addEventListener("load", () => {
         let sayCantDoIt = document.createElement('div');
         sayCantDoIt.classList.add('cant-do-it');
         sayCantDoIt.innerHTML = `${text}`;
-        if (!popUp.children.length > 0) {
+        if (popUp.children.length < 0) {
             popUp.append(sayCantDoIt);
             setTimeout(() => {
                 popUp.querySelector('.cant-do-it').remove();
@@ -254,6 +283,9 @@ window.addEventListener("load", () => {
 
 
     function setToEdit() {
+
+        saveBurger();
+
         allowedToDrag = false
 
         clearButton.innerHTML = 'Delete';
@@ -270,9 +302,10 @@ window.addEventListener("load", () => {
         })
         let saved = document.createElement('div')
         saved.classList.add('saved');
-        saved.innerHTML = 'Saved';
+        saved.innerHTML = 'Previewing';
         popUp.innerHTML = '';
         popUp.append(saved);
+
         setTimeout(() => {
             if (popUp.querySelector('.saved'))
                 popUp.querySelector('.saved').remove();
@@ -309,7 +342,7 @@ window.addEventListener("load", () => {
 
             }
         } else {
-            sayCantDoIt('Nothing to Save');
+            sayCantDoIt('Nothing to Preview');
         }
 
 
@@ -366,14 +399,10 @@ window.addEventListener("load", () => {
     clearButton.addEventListener('click', (e) => {
         e.preventDefault();
 
-        if (burger.children.length < 1) {
-            sayCantDoIt('Nothing to Clear')
-        } else if (isSaved) {
-            showDeleteModal()
+        if (burger.children.length < 1 && !isSaved) {
+            sayCantDoIt('Nothing to Delete')
         } else {
-            burger.innerHTML = '';
-
-
+            showDeleteModal();
         }
 
     })
@@ -426,4 +455,20 @@ window.addEventListener("load", () => {
     function scrollToIndex(index, draggablesInSlider, slider) {
         slider.scrollTop = draggablesInSlider[index].offsetTop;
     }
+
+    // save burger elems
+    let burgersCounter = 0;
+    function saveBurger() {
+        const draggablesInBurger = burger.querySelectorAll('img.draggable');
+
+        const burgerIngridientsArray = [];
+        draggablesInBurger.forEach((draggable) => {
+            const url = new URL(draggable.src)
+            burgerIngridientsArray.push(url.pathname);
+        })
+
+        localStorage.setItem(`burger` + `${burgersCounter++}`, JSON.stringify(burgerIngridientsArray))
+        console.log(JSON.parse(localStorage.getItem("burger0")))
+    }
+
 });

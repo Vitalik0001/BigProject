@@ -311,6 +311,11 @@ header {
   padding: 0 10px;
   margin: 0 auto;
 }
+@media (max-width: 550px) {
+  .burger-maker__container {
+    max-height: 165vh;
+  }
+}
 .burger-maker__kitchen {
   display: grid;
   grid-template-columns: 3fr 12fr 3fr;
@@ -320,7 +325,7 @@ header {
     grid-template-columns: 4fr 12fr 4fr;
   }
 }
-@media (max-width: 600px) {
+@media (max-width: 550px) {
   .burger-maker__kitchen {
     display: flex;
     flex-direction: column;
@@ -333,12 +338,13 @@ header {
   margin: auto 0;
   padding-top: -50px;
 }
-@media (max-width: 600px) {
+@media (max-width: 550px) {
   .ingridients-nav {
     max-height: 450px;
     rotate: 90deg;
     max-width: 200px;
     margin: 0 auto;
+    margin-top: 30px;
   }
   .ingridients-nav .draggable {
     rotate: 270deg;
@@ -346,17 +352,15 @@ header {
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 550px) {
   .ingridients-right-nav {
-    order: 2;
-    transform: translateX(-150px);
+    order: 1;
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 550px) {
   .ingridients-left-nav {
     order: 3;
-    transform: translateX(-450px);
   }
 }
 
@@ -422,12 +426,6 @@ header {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
-@media (max-width: 600px) {
-  .kitchen-ingridients {
-    display: flex;
-    flex-direction: column;
-  }
-}
 .kitchen-ingridients::-webkit-scrollbar {
   display: none;
 }
@@ -448,7 +446,7 @@ header {
   width: 100%;
   min-height: 25vh;
 }
-@media (max-width: 600px) {
+@media (max-width: 550px) {
   .kitchen-burger-holder {
     min-height: 0;
   }
@@ -663,9 +661,9 @@ header {
   max-width: 90%;
   margin: 0 auto;
 }
-@media (max-width: 600px) {
+@media (max-width: 550px) {
   .kitchen-center {
-    order: 1;
+    order: 2;
   }
 }
 
@@ -699,7 +697,7 @@ header {
   border: 2px solid rgb(176, 0, 0);
 }
 .button__main-confirm {
-  padding: 15px 50px;
+  padding: 15px 40px;
   background-color: rgb(73, 195, 11);
   border-radius: 7px;
   color: white;
@@ -787,6 +785,28 @@ header {
   -ms-user-select: none; /* IE 10 and IE 11 */
   -moz-user-select: none;
        user-select: none; /* Standard syntax */
+}
+
+.rotate-gif-modal {
+  z-index: 100000000000000;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 100vh;
+  width: 100vw;
+  background-color: #000;
+  display: none;
+}
+.rotate-gif-modal .rotate-gif {
+  background-image: url(../img/kitchen/rotate-phone.gif);
+  background-position-x: center;
+  background-position-y: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 50vw;
+  height: 90vh;
+  margin: auto;
 }
 
 /* Footer */
