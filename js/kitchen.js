@@ -1,3 +1,5 @@
+
+
 window.addEventListener("load", () => {
 
 
@@ -20,28 +22,35 @@ window.addEventListener("load", () => {
         instructionsModal = document.querySelector('.instructions'),
         instructionsModalBody = document.querySelector('.instructions__body'),
         instructionsModalCloseButton = document.querySelector('.instructions__close'),
-
+        burgerMakerKitchen = document.querySelector('.burger-maker__kitchen'),
         wrapper = document.querySelector('.wrapper');
-    //
+
+    //check phone direction
     const rotateModal = document.querySelector('.rotate-gif-modal');
+    if (screen.height < 520)
+        burgerMakerKitchen.style.marginTop = '25vh';
     if (window.matchMedia("(orientation:portrait)").matches) {
         rotateModal.style.display = 'block';
         body.style.overflow = 'hidden';
         wrapper.style.display = 'none';
+
     }
     function checkOrientation() {
-        if (window.matchMedia("(orientation:portrait)").matches) {
+        if (screen.height < 520)
+            burgerMakerKitchen.style.marginTop = '25vh';
+        if (!window.matchMedia("(orientation:portrait)").matches) {
+            wrapper.style.display = 'none';
+            rotateModal.style.display = 'block';
+            body.style.overflow = 'hidden';
 
+
+
+        } else {
             rotateModal.style.display = 'none';
             body.style.overflow = '';
             wrapper.style.display = 'block';
 
-        } else {
-            wrapper.style.display = 'none';
-            rotateModal.style.display = 'block';
-            body.style.overflow = 'hidden';
-            // if (body.height < 400)
-            //     burgerMakerKitchen.style.marginTop = '25vh';
+
         }
     }
 
@@ -91,7 +100,7 @@ window.addEventListener("load", () => {
         return lidAnimations[Math.floor(Math.random() * lidAnimations.length)];
     }
 
-    let copyIngridient, copy;
+    // let copyIngridient, copy;
     let firstCalled = true;
 
     trash.ondragover = (e) => {
@@ -123,107 +132,19 @@ window.addEventListener("load", () => {
         trashLid.classList.remove('trash-open2');
         trashLid.classList.remove('trash-open3');
         trashLid.classList.add('trash-closed');
-        const draggable = document.querySelector('.dragging');
-        draggable.remove();
         firstCalled = true;
+        // const draggable = document.querySelector('.dragging');
+        // draggable.remove();
+
 
     }
 
 
-    //drag and drop 
-    function setDragListener() {
-        draggables.forEach(draggable => {
 
-
-            draggable.addEventListener('dragstart', () => {
-
-                copyIngridient = draggable.parentElement.dataset.ingridient;
-
-                draggable.classList.add('dragging')
-
-                copy = draggable.cloneNode(true);
-
-                copy.classList.remove('dragging');
-            })
-
-
-            draggable.addEventListener('dragend', () => {
-                draggable.classList.remove('dragging')
-
-
-                const ingridientOrigin = document.querySelector(`[data-ingridient='${copyIngridient}']`);
-
-                if (!ingridientOrigin || ingridientOrigin.children.length > 0) {
-                    return
-                } else {
-                    ingridientOrigin.append(copy);
-                }
-                draggables = document.querySelectorAll('.draggable');
-
-                setDragListener()
-
-                setRemove();
-
-            })
-
-
-        })
-    }
-
-    setDragListener()
-
-
-
-    burger.addEventListener('dragover', (e) => {
-        e.preventDefault()
-
-        const afterElement = getDragAfterElement(burger, e.clientY)
-        const draggable = document.querySelector('.dragging')
-        if (afterElement == null) {
-
-            burger.appendChild(draggable)
-        } else {
-            burger.insertBefore(draggable, afterElement)
-        }
-
-
-        const draggablesInBurger = burger.querySelectorAll('.draggable');
-        const zIndices = [...Array(draggablesInBurger.length).keys()].reverse().map(i => i);
-
-        draggablesInBurger.forEach((draggable, i) => {
-
-            draggable.style.zIndex = zIndices[i];
-            draggable.style.cursor = 'move';
-        })
-
-
-
-
-    });
-
-    function getDragAfterElement(burger, y) {
-        const draggableElements = [...burger.querySelectorAll('.draggable:not(.dragging)')]
-
-        return draggableElements.reduce((closest, child) => {
-            const box = child.getBoundingClientRect()
-            const offset = y - box.top - box.height / 2
-            if (offset < 0 && offset > closest.offset) {
-                return { offset: offset, element: child }
-            } else {
-                return closest
-            }
-        }, { offset: Number.NEGATIVE_INFINITY }).element
-    }
-
-    function setRemove() {
-        burger.querySelectorAll('.draggable').forEach(ingridient => {
-
-            ingridient.style.content = "'before'";
-        });
-    }
 
 
     //button
+
     let isSaved = false;
     const addToBasket = document.createElement('button');
 
@@ -239,6 +160,7 @@ window.addEventListener("load", () => {
 
 
 
+
     function setToSave() {
 
 
@@ -249,10 +171,7 @@ window.addEventListener("load", () => {
 
         saveButton.innerHTML = 'Preview';
         isSaved = false;
-        document.querySelectorAll('.draggable').forEach(ingridient => {
 
-            ingridient.setAttribute('draggable', true);
-        })
         burger.querySelectorAll('.draggable').forEach(ingridient => {
             ingridient.style.marginTop = '-9%';
 
@@ -280,11 +199,38 @@ window.addEventListener("load", () => {
 
     }
 
+    function addBurgerToBasket() {
+        addToBasket.addEventListener('click', () => {
+
+            let saved = document.createElement('div')
+            saved.classList.add('added');
+            saved.innerHTML = 'Added to basket';
+            popUp.innerHTML = '';
+            popUp.append(saved);
+            saveBurger();
+            clearBurger();
 
 
+            setTimeout(() => {
+                if (popUp.querySelector('.added'))
+                    popUp.querySelector('.added').remove();
+            }, 3000);
+        })
+    }
+    addBurgerToBasket();
+    function setZindicesForIngridients() {
+        const draggablesInBurger = burger.querySelectorAll('.draggable');
+        const zIndices = [...Array(draggablesInBurger.length).keys()].reverse().map(i => i);
+
+        draggablesInBurger.forEach((draggable, i) => {
+
+            draggable.style.zIndex = zIndices[i];
+            draggable.style.cursor = 'move';
+        })
+    }
     function setToEdit() {
 
-        saveBurger();
+
 
         allowedToDrag = false
 
@@ -292,10 +238,7 @@ window.addEventListener("load", () => {
 
         saveButton.innerHTML = 'Edit';
         isSaved = true;
-        document.querySelectorAll('.draggable').forEach(ingridient => {
 
-            ingridient.setAttribute('draggable', false);
-        })
         burger.querySelectorAll('.draggable').forEach(ingridient => {
             ingridient.style.marginTop = '-20%';
 
@@ -322,7 +265,7 @@ window.addEventListener("load", () => {
         draggables.forEach(draggable => {
             draggable.addEventListener('mousedown', () => {
                 if (!allowedToDrag) {
-                    sayCantDoIt("Can't do it");
+                    sayCantDoIt("Don't do it");
                 }
             })
         });
@@ -381,15 +324,21 @@ window.addEventListener("load", () => {
     }
     deleteModalButtonYes.addEventListener('click', (e) => {
         e.preventDefault();
+        closeDeleteModalAtAll();
+        clearBurger();
+    })
+
+    const clearBurger = () => {
+
         burger.querySelectorAll('.draggable').forEach(ingridient => {
             ingridient.remove();
         })
-        closeDeleteModalAtAll();
+
         addToBasket.style.display = 'none';
         setToSave();
         saveButton.classList.toggle('button__main-confirm');
         saveButton.classList.toggle('button__main-edit');
-    })
+    }
     deleteModalButtonNo.addEventListener('click', (e) => {
         e.preventDefault();
         closeDeleteModalAtAll();
@@ -470,5 +419,54 @@ window.addEventListener("load", () => {
         localStorage.setItem(`burger` + `${burgersCounter++}`, JSON.stringify(burgerIngridientsArray))
         console.log(JSON.parse(localStorage.getItem("burger0")))
     }
+
+
+    // drag and drop
+    document.querySelectorAll('.kitchen-ingridients').forEach(listOfIngridients => {
+        new Sortable(listOfIngridients, {
+            group: {
+                name: 'shared',
+                pull: 'clone',
+                put: false // Do not allow items to be put into this list
+            },
+            chosenClass: 'dragging',
+            animation: 150,
+            sort: false,
+
+            onEnd: function (/**Event*/evt) {
+                if (evt.to.classList.contains('trash')) {
+                    evt.item.parentNode.removeChild(evt.item);
+                }
+                setZindicesForIngridients()
+            }
+        });
+    })
+
+    new Sortable(burger, {
+
+        group: 'shared',
+        chosenClass: 'dragging',
+
+        animation: 150,
+
+
+
+        onEnd: function (/**Event*/evt) {
+            if (evt.to.classList.contains('trash')) {
+                evt.item.parentNode.removeChild(evt.item);
+            }
+            setZindicesForIngridients()
+        }
+    });
+    new Sortable(trash, {
+        group: {
+            name: 'shared',
+            put: true // Do not allow items to be put into this list
+        },
+        dragClass: 'dragging',
+        animation: 150,
+        sort: false
+
+    })
 
 });

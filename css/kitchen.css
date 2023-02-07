@@ -52,6 +52,7 @@ svg {
 html, body {
   height: 100%;
   min-width: 320px;
+  overflow-x: hidden;
 }
 
 body {
@@ -351,6 +352,12 @@ header {
     margin: 50px 0px;
   }
 }
+@media (max-height: 600px) {
+  .ingridients-nav {
+    max-height: 230px;
+    margin-top: 10vh;
+  }
+}
 
 @media (max-width: 550px) {
   .ingridients-right-nav {
@@ -401,7 +408,7 @@ header {
   margin-right: auto;
   left: 0;
   right: 0;
-  bottom: -20px;
+  bottom: -60px;
   text-align: center;
   position: absolute;
   transition: 0.2s;
@@ -426,6 +433,11 @@ header {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
+@media (max-height: 600px) {
+  .kitchen-ingridients {
+    max-height: 230px;
+  }
+}
 .kitchen-ingridients::-webkit-scrollbar {
   display: none;
 }
@@ -449,6 +461,13 @@ header {
 @media (max-width: 550px) {
   .kitchen-burger-holder {
     min-height: 0;
+    margin-bottom: 0;
+  }
+}
+@media (max-height: 600px) {
+  .kitchen-burger-holder {
+    margin-top: 0;
+    margin-bottom: 0;
   }
 }
 .kitchen-burger-holder .trash {
@@ -468,6 +487,12 @@ header {
   background-repeat: no-repeat;
   cursor: pointer;
 }
+@media (max-width: 700px) {
+  .kitchen-burger-holder .trash {
+    width: 90px;
+    height: 165px;
+  }
+}
 .kitchen-burger-holder .trash:active .trash-lid {
   -webkit-animation: opening-lid-active 0.4s forwards !important;
           animation: opening-lid-active 0.4s forwards !important;
@@ -476,6 +501,9 @@ header {
   position: relative;
   width: 100%;
   height: 100px;
+}
+.kitchen-burger-holder .trash .draggable {
+  display: none;
 }
 .kitchen-burger-holder .trash-lid {
   bottom: 0px;
@@ -490,6 +518,11 @@ header {
   -webkit-animation: closing-lid 1s;
           animation: closing-lid 1s;
   z-index: -1;
+}
+@media (max-width: 700px) {
+  .kitchen-burger-holder .trash-lid {
+    height: 27px;
+  }
 }
 .kitchen-burger-holder .trash-can {
   background-position-x: center;
@@ -612,6 +645,11 @@ header {
   align-items: center;
   transition: 0.3s ease-in-out;
 }
+@media (max-height: 600px) {
+  .burger {
+    height: 70%;
+  }
+}
 .burger .draggable {
   transition: 0.7s;
   position: relative;
@@ -639,20 +677,6 @@ header {
   overflow-x: hidden;
 }
 
-.burger-ingridient {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  margin: 20px 0;
-}
-.burger-ingridient img {
-  max-width: 95%;
-  cursor: move;
-}
-.burger-ingridient .draggable {
-  transform: translateY(-15px);
-}
-
 .kitchen-center {
   display: flex;
   flex-direction: column;
@@ -677,7 +701,13 @@ header {
   margin: 50px 0;
   transition: 0.3s;
 }
+@media (max-height: 600px) {
+  .button {
+    margin-top: 10px;
+  }
+}
 .button__main-clear {
+  box-sizing: border-box;
   padding: 14px 49px;
   background: none;
   color: white;
@@ -760,6 +790,21 @@ header {
 .saved {
   padding: 5px 15px;
   background-color: rgba(46, 49, 45, 0.67);
+  border-radius: 4px;
+  color: white;
+  font-size: 18px;
+  font-weight: 600;
+  outline: none;
+  transition: all 0.3s ease;
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  -moz-user-select: none;
+       user-select: none; /* Standard syntax */
+}
+
+.added {
+  padding: 5px 15px;
+  background-color: rgba(133, 246, 95, 0.67);
   border-radius: 4px;
   color: white;
   font-size: 18px;
