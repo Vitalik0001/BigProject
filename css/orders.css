@@ -66,6 +66,12 @@ body {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+body::-webkit-scrollbar {
+  display: none;
 }
 
 .wrapper {
@@ -202,29 +208,59 @@ header {
   margin-right: 10px;
 }
 .window__list {
+  overflow: auto;
+  max-height: 300px;
   margin-top: 55px;
+  padding-right: 20px;
+}
+.window__list::-webkit-scrollbar {
+  width: 10px;
+  margin-left: 10px;
+}
+.window__list::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+.window__list::-webkit-scrollbar-thumb {
+  background: #e18e00;
+}
+.window__list::-webkit-scrollbar-thumb:hover {
+  background: #c66d00;
 }
 .window__text {
+  max-width: 335px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
-.list__order {
+.list li {
   display: flex;
   gap: 20px;
 }
-.list__order:nth-child(n) {
-  margin-bottom: 7px;
-}
-.list__order:before {
+
+.list li:before {
   display: block;
   content: "•";
 }
-.list__order:after {
-  display: block;
-  content: "x1";
-  margin-left: 20px;
+
+.list li:nth-child(n) {
+  margin-bottom: 10px;
+}
+
+.list li:last-child {
+  margin-bottom: 20px;
+}
+
+.list a {
+  display: flex;
+  text-align: center;
+  font-size: 25px;
+}
+
+.list a:last-child {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 15px;
 }
 
 .button {

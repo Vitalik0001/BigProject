@@ -142,23 +142,19 @@ window.addEventListener("load", () => {
 
 
 
-
     //button
 
     let isSaved = false;
-    const addToBasket = document.createElement('button');
+    const addToBasket = document.createElement("button");
 
-    addToBasket.classList.add('button__main-submit');
-    addToBasket.innerHTML = 'Add To Basket';
-    buttonField.insertBefore(addToBasket, saveButton)
-    addToBasket.style.display = 'none';
+    addToBasket.classList.add("button__main-submit");
+    addToBasket.innerHTML = "Add To Basket";
+    buttonField.insertBefore(addToBasket, saveButton);
+    addToBasket.style.display = "none";
 
-    addToBasket.addEventListener('click', (e) => {
+    addToBasket.addEventListener("click", (e) => {
         e.preventDefault();
-    })
-
-
-
+    });
 
 
     function setToSave() {
