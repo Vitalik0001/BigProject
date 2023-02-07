@@ -71,7 +71,6 @@ body {
   font-weight: 400;
   -webkit-user-select: none;
      -moz-user-select: none;
-      -ms-user-select: none;
           user-select: none;
 }
 
@@ -254,7 +253,6 @@ header {
   margin-bottom: 50px;
   -webkit-user-select: none;
      -moz-user-select: none;
-      -ms-user-select: none;
           user-select: none;
 }
 .image-slider__image {

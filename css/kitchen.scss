@@ -53,11 +53,11 @@ svg {
 
 /* Styles main settings */
 
-html, body {
-	height: 100%;
-	min-width: 320px;
+html,
+body {
+  height: 100%;
+  min-width: 320px;
   overflow-x: hidden;
-  
 }
 
 body {
@@ -346,14 +346,12 @@ header {
     // max-width: 1420px;
     padding: 0 10px;
     margin: 0 auto;
-    @media (max-width:550px ){
+    @media (max-width: 550px) {
       max-height: 165vh;
-      
     }
   }
 
   &__kitchen {
-    
     display: grid;
     grid-template-columns: 3fr 12fr 3fr;
     @media (max-width: 850px) {
@@ -376,27 +374,24 @@ header {
     max-width: 200px;
     margin: 0 auto;
     margin-top: 30px;
-    .draggable{
+    .draggable {
       rotate: 270deg;
       margin: 50px 0px;
     }
   }
-  @media (max-height:600px) {
+  @media (max-height: 600px) {
     max-height: 230px;
     margin-top: 10vh;
   }
-  
 }
-.ingridients-right-nav{
-  @media (max-width:550px) {
+.ingridients-right-nav {
+  @media (max-width: 550px) {
     order: 1;
-    
   }
 }
-.ingridients-left-nav{
-  @media (max-width:550px) {
+.ingridients-left-nav {
+  @media (max-width: 550px) {
     order: 3;
-    
   }
 }
 .arrow-previous {
@@ -453,14 +448,13 @@ header {
   // border-right: 10px solid rgb(222, 107, 0);
 }
 .kitchen-ingridients {
-  
   scroll-behavior: smooth;
 
   margin-top: -5px;
   max-height: 430px;
   transition: 0.3s;
   background-color: black;
-  @media (max-height:600px) {
+  @media (max-height: 600px) {
     max-height: 230px;
   }
   overflow-y: scroll;
@@ -496,10 +490,10 @@ header {
   align-items: flex-end;
 
   width: 100%;
-  
-  min-height:25vh;
-  @media( max-width:550px) {
-    min-height:0;
+
+  min-height: 25vh;
+  @media (max-width: 550px) {
+    min-height: 0;
     margin-bottom: 0;
   }
   @media (max-height: 600px) {
@@ -519,11 +513,11 @@ header {
     bottom: 45px;
     width: 120px;
     height: 220px;
-    @media (max-width:700px) {
+    @media (max-width: 700px) {
       width: 90px;
       height: 165px;
     }
-    
+
     background-position-x: center;
     background-position-y: center;
     background-size: cover;
@@ -540,7 +534,7 @@ header {
       width: 100%;
       height: 100px;
     }
-    .draggable{
+    .draggable {
       display: none;
     }
   }
@@ -557,8 +551,7 @@ header {
     background-image: url(../img/kitchen/recycle-bin-lid3.png);
     animation: closing-lid 1s;
     z-index: -1;
-    @media (max-width:700px) {
-      
+    @media (max-width: 700px) {
       height: 27px;
     }
   }
@@ -645,13 +638,12 @@ header {
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
-  transition:  .3s ease-in-out;
+  transition: 0.3s ease-in-out;
   @media (max-height: 600px) {
-   height: 70%;
+    height: 70%;
   }
-  .draggable{
-    
-    transition: .7s;
+  .draggable {
+    transition: 0.7s;
     position: relative;
 
     margin: 0 auto;
@@ -664,10 +656,6 @@ header {
     @media (max-width: 1000px) {
       width: 80%;
     }
-  
-    
-    
-    
   }
 }
 .dragging {
@@ -681,9 +669,8 @@ header {
   overflow-x: hidden;
 }
 
-
-.kitchen-center{
-  @media (max-width:550px) {
+.kitchen-center {
+  @media (max-width: 550px) {
     order: 2;
   }
 
@@ -704,7 +691,7 @@ header {
   gap: 50px;
   justify-content: space-around;
   margin: 50px 0;
-  transition: .3s;
+  transition: 0.3s;
   @media (max-height: 600px) {
     margin-top: 10px;
   }
@@ -720,19 +707,15 @@ header {
     cursor: pointer;
     outline: none;
     transition: all 0.3s ease;
-      &:hover {
-        background-color: rgb(227, 3, 3);
-      }
-    
-      &:active {
-        background-color: rgb(176, 0, 0);
-        border: 2px solid rgb(176, 0, 0);
-      }
+    &:hover {
+      background-color: rgb(227, 3, 3);
+    }
 
-      
+    &:active {
+      background-color: rgb(176, 0, 0);
+      border: 2px solid rgb(176, 0, 0);
+    }
   }
-
-  
 
   &__main-confirm {
     padding: 15px 40px;
@@ -813,37 +796,35 @@ header {
   -ms-user-select: none; /* IE 10 and IE 11 */
   user-select: none; /* Standard syntax */
 }
-.saved{
-      
+.saved {
   padding: 5px 15px;
   background-color: rgba(133, 246, 95, 0.67);
   border-radius: 4px;
   color: white;
   font-size: 18px;
   font-weight: 600;
-  
+
   outline: none;
   transition: all 0.3s ease;
   -webkit-user-select: none; /* Safari */
   -ms-user-select: none; /* IE 10 and IE 11 */
   user-select: none; /* Standard syntax */
 }
-.added{
-      
+.added {
   padding: 5px 15px;
   background-color: rgba(133, 246, 95, 0.67);
   border-radius: 4px;
   color: white;
   font-size: 18px;
   font-weight: 600;
-  
+
   outline: none;
   transition: all 0.3s ease;
   -webkit-user-select: none; /* Safari */
   -ms-user-select: none; /* IE 10 and IE 11 */
   user-select: none; /* Standard syntax */
 }
-.cant-do-it{
+.cant-do-it {
   padding: 5px 15px;
   background-color: rgba(208, 3, 3, 0.764);
   border-radius: 4px;
@@ -858,20 +839,20 @@ header {
   user-select: none; /* Standard syntax */
 }
 
-.rotate-gif-modal{
+.rotate-gif-modal {
   z-index: 100000000000000;
   position: absolute;
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    height: 100vh;
-    width: 100vw;
-    background-color: #000;
-    display: none;
-    
-    .rotate-gif{
-      background-image: url(../img/kitchen/rotate-phone.gif);
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  height: 100vh;
+  width: 100vw;
+  background-color: #000;
+  display: none;
+
+  .rotate-gif {
+    background-image: url(../img/kitchen/rotate-phone.gif);
     background-position-x: center;
     background-position-y: center;
     background-size: contain;
@@ -879,7 +860,7 @@ header {
     width: 50vw;
     height: 90vh;
     margin: auto;
-    }
+  }
 }
 
 /* Footer */

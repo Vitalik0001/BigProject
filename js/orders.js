@@ -1,5 +1,4 @@
-window.addEventListener('load', () => {
-
+window.addEventListener("load", () => {
   loadIntoBurgerSlider();
 
   const buttonConfirm = document.querySelector(".button__main-confirm");
@@ -99,90 +98,80 @@ window.addEventListener('load', () => {
     }
   }
 
-
-
   function loadIntoBurgerSlider() {
-    const burgersFromLocalStorage = JSON.parse(localStorage.getItem('burgers'));
-    const totalBurgersCounter = document.querySelector('.header__order-counter a');
+    const burgersFromLocalStorage = JSON.parse(localStorage.getItem("burgers"));
+    const totalBurgersCounter = document.querySelector(
+      ".header__order-counter a"
+    );
     if (burgersFromLocalStorage === null) {
-
-      totalBurgersCounter.textContent = '0';
+      totalBurgersCounter.textContent = "0";
     } else {
       totalBurgersCounter.textContent = burgersFromLocalStorage.length;
     }
 
-    const burgersCarousel = document.querySelector('#burgers-carousel');
+    const burgersCarousel = document.querySelector("#burgers-carousel");
 
+    let burgersCarouselInside = "";
 
-    let burgersCarouselInside = '';
-
-    burgersFromLocalStorage.forEach(burger => {
-      let burgerInside = '';
-      burger.forEach(ingridientUrl => {
-
-        burgerInside += `<img class="burger-ingridient" src="${ingridientUrl}">`
-
-
+    burgersFromLocalStorage.forEach((burger) => {
+      let burgerInside = "";
+      burger.forEach((ingridientUrl) => {
+        burgerInside += `<img class="burger-ingridient" src="${ingridientUrl}">`;
       });
       burgersCarouselInside += `<div class="burger">${burgerInside}</div>`;
     });
     burgersCarousel.innerHTML = burgersCarouselInside;
 
-    const burgersInside = document.querySelectorAll('.burger');
+    const burgersInside = document.querySelectorAll(".burger");
 
-    burgersInside.forEach(burger => {
-      const ingridientsInBurger = burger.querySelectorAll('.burger-ingridient');
-      const zIndices = [...Array(ingridientsInBurger.length).keys()].reverse().map(i => i);
+    burgersInside.forEach((burger) => {
+      const ingridientsInBurger = burger.querySelectorAll(".burger-ingridient");
+      const zIndices = [...Array(ingridientsInBurger.length).keys()]
+        .reverse()
+        .map((i) => i);
 
       ingridientsInBurger.forEach((ingridient, i) => {
-        ingridient.style.position = 'relative';
+        ingridient.style.position = "relative";
         ingridient.style.zIndex = zIndices[i];
-
-      })
-    })
-
+      });
+    });
   }
 
   function sumOrder() {
-    const burgersFromLocalStorage = JSON.parse(localStorage.getItem('burgers'));
+    const burgersFromLocalStorage = JSON.parse(localStorage.getItem("burgers"));
     const windowListOrder = document.querySelector(".window__list");
-    const totalSum = document.querySelector('.main__total');
-
+    const totalSum = document.querySelector(".main__total");
 
     let counter = 0;
 
     if (burgersFromLocalStorage.length > 0) {
-      burgersFromLocalStorage.forEach(burger => {
+      burgersFromLocalStorage.forEach((burger) => {
         counter++;
-        let li = document.createElement('li');
+        let li = document.createElement("li");
         li.innerHTML = `Burger #${counter} - ${burger.length}$`;
         windowListOrder.append(li);
-      })
+      });
 
-
-
-      let totalSumOrder = document.createElement('a');
+      let totalSumOrder = document.createElement("a");
       let totalPrice = 0;
-      burgersFromLocalStorage.forEach(burger => {
+      burgersFromLocalStorage.forEach((burger) => {
         totalPrice += burger.length;
-      })
+      });
       totalSumOrder.innerHTML = `<span>Total:</span> ${totalPrice}$`;
       totalSum.append(totalSumOrder);
     } else {
-      const aFirstTag = document.createElement('a');
-      aFirstTag.innerHTML = 'There is nothing to order :(';
+      const aFirstTag = document.createElement("a");
+      aFirstTag.innerHTML = "There is nothing to order :(";
       windowListOrder.append(aFirstTag);
-      const aSecondTag = document.createElement('a');
-      aSecondTag.innerHTML = '* Before ordering, create your burger in the "kitchen" section *';
+      const aSecondTag = document.createElement("a");
+      aSecondTag.innerHTML =
+        '* Before ordering, create your burger in the "kitchen" section *';
       windowListOrder.append(aSecondTag);
 
-      let totalSumOrder = document.createElement('a');
+      let totalSumOrder = document.createElement("a");
       totalSumOrder.innerHTML = `<span>Total:</span> 0$`;
       totalSum.append(totalSumOrder);
     }
-
-
   }
   sumOrder();
-
 });

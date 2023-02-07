@@ -64,7 +64,6 @@ body {
   background-size: cover;
   -webkit-user-select: none;
      -moz-user-select: none;
-      -ms-user-select: none;
           user-select: none;
   /* Hide scrollbar for Chrome, Safari and Opera */
   -ms-overflow-style: none; /* IE and Edge */
@@ -339,7 +338,6 @@ header {
   border-radius: 17px;
   -webkit-user-select: none;
      -moz-user-select: none;
-      -ms-user-select: none;
           user-select: none;
 }
 .popup__close {
@@ -368,24 +366,9 @@ header {
   margin-bottom: 20px;
 }
 .popup__input:invalid {
-  -webkit-animation: justshake 0.3s forwards;
-          animation: justshake 0.3s forwards;
+  animation: justshake 0.3s forwards;
   color: rgb(255, 0, 0);
   border: 3px solid red;
-}
-@-webkit-keyframes justshake {
-  25% {
-    transform: translateX(5px);
-  }
-  50% {
-    transform: translateX(-5px);
-  }
-  75% {
-    transform: translateX(5px);
-  }
-  100% {
-    transform: translateX-(5px);
-  }
 }
 @keyframes justshake {
   25% {
@@ -430,7 +413,6 @@ header {
   transition: background-color 0.2s cubic-bezier(0.3, 0, 0.5, 1);
   -webkit-user-select: none;
      -moz-user-select: none;
-      -ms-user-select: none;
           user-select: none;
   touch-action: manipulation;
 }
