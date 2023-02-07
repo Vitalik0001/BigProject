@@ -265,7 +265,7 @@ window.addEventListener("load", () => {
         draggables.forEach(draggable => {
             draggable.addEventListener('mousedown', () => {
                 if (!allowedToDrag) {
-                    sayCantDoIt("Don't do it");
+                    sayCantDoIt('Press "Edit" for better experience');
                 }
             })
         });
@@ -406,7 +406,19 @@ window.addEventListener("load", () => {
     }
 
     // save burger elems
-    let burgersCounter = 0;
+
+    let burgersInLocalStorage = JSON.parse(localStorage.getItem('burgers'));
+    const totalBurgersCounter = document.querySelector('.header__order-counter a');
+
+
+    if (burgersInLocalStorage === null) {
+        burgersInLocalStorage = [];
+        totalBurgersCounter.textContent = '0';
+    } else {
+        totalBurgersCounter.textContent = burgersInLocalStorage.length;
+    }
+
+
     function saveBurger() {
         const draggablesInBurger = burger.querySelectorAll('img.draggable');
 
@@ -415,9 +427,12 @@ window.addEventListener("load", () => {
             const url = new URL(draggable.src)
             burgerIngridientsArray.push(url.pathname);
         })
+        burgersInLocalStorage.push(burgerIngridientsArray);
+        localStorage.setItem(`burgers`, JSON.stringify(burgersInLocalStorage))
+        console.log('success')
 
-        localStorage.setItem(`burger` + `${burgersCounter++}`, JSON.stringify(burgerIngridientsArray))
-        console.log(JSON.parse(localStorage.getItem("burger0")))
+        totalBurgersCounter.textContent = burgersInLocalStorage.length;
+
     }
 
 

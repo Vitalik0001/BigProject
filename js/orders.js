@@ -102,18 +102,21 @@ window.addEventListener('load', () => {
 
 
   function loadIntoBurgerSlider() {
-    const arrayBurgerIngridientsArrays = [];
-    const burgersCarousel = document.querySelector('#burgers-carousel');
-    for (let i = 0; i < localStorage.length; i++) {
-      let key = localStorage.key(i);
-      let value = localStorage.getItem(key);
-      if (key && value)
-        arrayBurgerIngridientsArrays.push(JSON.parse(value));
+    const burgersFromLocalStorage = JSON.parse(localStorage.getItem('burgers'));
+    const totalBurgersCounter = document.querySelector('.header__order-counter a');
+    if (burgersFromLocalStorage === null) {
+
+      totalBurgersCounter.textContent = '0';
+    } else {
+      totalBurgersCounter.textContent = burgersFromLocalStorage.length;
     }
+
+    const burgersCarousel = document.querySelector('#burgers-carousel');
+
 
     let burgersCarouselInside = '';
 
-    arrayBurgerIngridientsArrays.forEach(burger => {
+    burgersFromLocalStorage.forEach(burger => {
       let burgerInside = '';
       burger.forEach(ingridientUrl => {
 
