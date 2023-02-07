@@ -1,330 +1,205 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Burger</title>
 
-    <link rel="stylesheet" href="../css/kitchen.css" />
-  </head>
-  <body>
-    <div class="wrapper">
-      <header>
-        <div class="header">
-          <div class="header__container">
-            <div class="header__logo-img">
-              <img src="../img/burger.png" alt="Logo" />
-            </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Burger</title>
 
-            <div class="header__text">
-              <a href="./home.html">Burger</a>
-            </div>
+  <link rel="stylesheet" href="../css/kitchen.css" />
+</head>
 
-            <div class="header__orders">
-              <div class="header__order-counter"><a></a></div>
-              <form action="../html/orders.html">
-                <button class="header__button-orders">
-                  <image src="../img/shopping-bag.png"></image>
-                </button>
-              </form>
-            </div>
+<body>
+  <div class="wrapper">
+    <header>
+      <div class="header">
+        <div class="header__container">
+          <div class="header__logo-img">
+            <img src="../img/burger.png" alt="Logo" />
+          </div>
+
+          <div class="header__text">
+            <a href="./home.html">Burger</a>
+          </div>
+
+          <div class="header__orders">
+            <div class="header__order-counter"><a></a></div>
+            <form action="../html/orders.html">
+              <button class="header__button-orders">
+                <image src="../img/shopping-bag.png"></image>
+              </button>
+            </form>
           </div>
         </div>
-      </header>
-      <main>
-        <section class="burger-maker">
-          <div class="burger-maker__container">
-            <div class="burger-maker__kitchen">
-              <div class="ingridients-left-nav ingridients-nav">
-                <div class="arrow-previous arrow-previous-left"></div>
-                <div class="arrow-next arrow-next-left"></div>
-                <div class="kitchen-elements-left kitchen-ingridients">
-                  <div data-ingridient="whiteTop" class="burger-ingridient">
-                    <img
-                      class="draggable"
-                      data-price="1"
-                      src="../img/kitchen/elements/6.png"
-                      alt="whiteTop"
-                    />
-                  </div>
-                  <div data-ingridient="whiteBottom" class="burger-ingridient">
-                    <img
-                      class="draggable"
-                      data-price="1"
-                      src="../img/kitchen/elements/7.png"
-                      alt="whiteBottom"
-                    />
-                  </div>
-                  <div
-                    data-ingridient="blackGrilledTop"
-                    class="burger-ingridient"
-                  >
-                    <img
-                      class="draggable"
-                      data-price="2"
-                      src="../img/kitchen/elements/8.png"
-                      alt="blackGrilledTop"
-                    />
-                  </div>
-                  <div
-                    data-ingridient="blackGrilledBottom"
-                    class="burger-ingridient"
-                  >
-                    <img
-                      class="draggable"
-                      data-price="2"
-                      src="../img/kitchen/elements/9.png"
-                      alt="blackGrilledBottom"
-                    />
-                  </div>
-                  <div data-ingridient="tostTop" class="burger-ingridient">
-                    <img
-                      class="draggable"
-                      data-price="1"
-                      src="../img/kitchen/elements/1.png"
-                      alt="tostTop"
-                    />
-                  </div>
-                  <div data-ingridient="tostBottom" class="burger-ingridient">
-                    <img
-                      class="draggable"
-                      data-price="1"
-                      src="../img/kitchen/elements/2.png"
-                      alt="tostBottom"
-                    />
-                  </div>
-                  <div data-ingridient="blackTop" class="burger-ingridient">
-                    <img
-                      class="draggable"
-                      data-price="2"
-                      src="../img/kitchen/elements/3.png"
-                      alt="blackTop"
-                    />
-                  </div>
-                  <div data-ingridient="blackBottom" class="burger-ingridient">
-                    <img
-                      class="draggable"
-                      data-price="2"
-                      src="../img/kitchen/elements/4.png"
-                      alt="blackBottom"
-                    />
-                  </div>
-                  <div data-ingridient="mustard" class="burger-ingridient">
-                    <img
-                      class="draggable"
-                      data-price="1"
-                      src="../img/kitchen/elements/10.png"
-                      alt="mustard"
-                    />
-                  </div>
-                  <div data-ingridient="mayo" class="burger-ingridient">
-                    <img
-                      class="draggable"
-                      data-price="1"
-                      src="../img/kitchen/elements/11.png"
-                      alt="mayo"
-                    />
-                  </div>
-                  <div data-ingridient="shrimps" class="burger-ingridient">
-                    <img
-                      class="draggable"
-                      data-price="3"
-                      src="../img/kitchen/elements/12.png"
-                      alt="shrimps"
-                    />
-                  </div>
-                  <div data-ingridient="egg" class="burger-ingridient">
-                    <img
-                      class="draggable"
-                      data-price="3"
-                      src="../img/kitchen/elements/25.png"
-                      alt="egg"
-                    />
-                  </div>
-                </div>
-              </div>
-              <div class="kitchen-center">
-                <div id="popup" class="popup"></div>
-                <div class="kitchen-burger-holder">
-                  <div class="trash">
-                    <div class="space-for-lid">
-                      <div class="trash-lid"></div>
-                    </div>
-                    <div class="trash-can"></div>
-                  </div>
-                  <div class="burger">
-                    <img
-                      class="draggable"
-                      data-price="1"
-                      style="z-index: 2"
-                      src="../img/kitchen/elements/6.png"
-                      alt="whiteTop"
-                    />
-                    <img
-                      class="draggable"
-                      data-price="1"
-                      src="../img/kitchen/elements/7.png"
-                      alt="whiteBottom"
-                    />
-                  </div>
-                </div>
-                <form class="button">
-                  <button class="button__main-clear"><a>Clear</a></button>
-                  <button class="button__main-confirm"><a>Save</a></button>
-                </form>
-              </div>
-              <div class="ingridients-right-nav ingridients-nav">
-                <div class="arrow-previous arrow-previous-right"></div>
-                <div class="arrow-next arrow-next-right"></div>
-                <div class="kitchen-elements-right kitchen-ingridients">
-                  <div data-ingridient="onions" class="burger-ingridient">
-                    <img
-                      class="draggable"
-                      data-price="2"
-                      src="../img/kitchen/elements/13.png"
-                      alt="onions"
-                    />
-                  </div>
-                  <div data-ingridient="cheese" class="burger-ingridient">
-                    <img
-                      class="draggable"
-                      data-price="2"
-                      src="../img/kitchen/elements/14.png"
-                      alt="cheese"
-                    />
-                  </div>
-                  <div data-ingridient="ketchup" class="burger-ingridient">
-                    <img
-                      class="draggable"
-                      data-price="1"
-                      src="../img/kitchen/elements/15.png"
-                      alt="ketchup"
-                    />
-                  </div>
-                  <div data-ingridient="chicken" class="burger-ingridient">
-                    <img
-                      class="draggable"
-                      data-price="4"
-                      src="../img/kitchen/elements/16.png"
-                      alt="chicken"
-                    />
-                  </div>
-                  <div data-ingridient="tomatoes" class="burger-ingridient">
-                    <img
-                      class="draggable"
-                      data-price="3"
-                      src="../img/kitchen/elements/17.png"
-                      alt="tomatoes"
-                    />
-                  </div>
-                  <div data-ingridient="fries" class="burger-ingridient">
-                    <img
-                      class="draggable"
-                      data-price="3"
-                      src="../img/kitchen/elements/18.png"
-                      alt="fries"
-                    />
-                  </div>
-                  <div data-ingridient="caramel" class="burger-ingridient">
-                    <img
-                      class="draggable"
-                      data-price="1"
-                      src="../img/kitchen/elements/19.png"
-                      alt="caramel"
-                    />
-                  </div>
-                  <div data-ingridient="Pattie" class="burger-ingridient">
-                    <img
-                      class="draggable"
-                      data-price="5"
-                      src="../img/kitchen/elements/20.png"
-                      alt="Pattie"
-                    />
-                  </div>
-                  <div data-ingridient="olives" class="burger-ingridient">
-                    <img
-                      class="draggable"
-                      data-price="3"
-                      src="../img/kitchen/elements/21.png"
-                      alt="olives"
-                    />
-                  </div>
-                  <div data-ingridient="lettuce" class="burger-ingridient">
-                    <img
-                      class="draggable"
-                      data-price="2"
-                      src="../img/kitchen/elements/22.png"
-                      alt="lettuce"
-                    />
-                  </div>
-                  <div data-ingridient="onionsFried" class="burger-ingridient">
-                    <img
-                      class="draggable"
-                      data-price="4"
-                      src="../img/kitchen/elements/23.png"
-                      alt="onionsFried"
-                    />
-                  </div>
-                  <div data-ingridient="pickles" class="burger-ingridient">
-                    <img
-                      class="draggable"
-                      data-price="3"
-                      src="../img/kitchen/elements/24.png"
-                      alt="pickles"
-                    />
-                  </div>
-                </div>
+      </div>
+    </header>
+    <main>
+
+      <section class="burger-maker">
+        <div class="burger-maker__container">
+
+          <div class="burger-maker__kitchen">
+            <div class="ingridients-left-nav ingridients-nav">
+              <div class="arrow-previous arrow-previous-left"></div>
+              <div class=" arrow-next arrow-next-left"></div>
+              <div class="kitchen-elements-left kitchen-ingridients">
+
+
+
+
+
+                <img class="draggable" src="../img/kitchen/elements/6.png" alt="">
+
+                <img class="draggable" src="../img/kitchen/elements/7.png" alt="">
+
+                <img class="draggable" src="../img/kitchen/elements/8.png" alt="">
+
+                <img class="draggable" src="../img/kitchen/elements/9.png" alt="">
+
+                <img class="draggable" src="../img/kitchen/elements/1.png" alt="">
+
+                <img class="draggable" src="../img/kitchen/elements/2.png" alt="">
+
+                <img class="draggable" src="../img/kitchen/elements/3.png" alt="">
+
+                <img class="draggable" src="../img/kitchen/elements/4.png" alt="">
+
+                <img class="draggable" src="../img/kitchen/elements/10.png" alt="">
+
+
+
+
+                <img class="draggable" src="../img/kitchen/elements/11.png" alt="">
+
+
+                <img class="draggable" src="../img/kitchen/elements/12.png" alt="">
+
+
+                <img class="draggable" src="../img/kitchen/elements/25.png" alt="">
+
+
               </div>
             </div>
-            <div id="delete-modal" class="delete-modal">
-              <div class="delete-modal__body">
-                <div class="delete-modal__content">
-                  <div class="delete-modal__close"><a>X</a></div>
-                  <div class="delete-modal__title">
-                    <form>
-                      <p>
-                        Do you want to delete this burger?<br />
-                        Afterwards it can't be restored.
-                      </p>
-                      <div class="delete-modal__button">
-                        <button class="delete-modal__main-clear">
-                          <a>Yes</a>
-                        </button>
-                        <button id="button-cancel" class="button__main-confirm">
-                          <a>No</a>
-                        </button>
-                      </div>
-                    </form>
+            <div class="kitchen-center">
+              <div id="popup" class="popup">
+
+              </div>
+              <div class="kitchen-burger-holder">
+                <div class="trash">
+                  <div class="space-for-lid">
+                    <div class="trash-lid"></div>
                   </div>
+                  <div class="trash-can"></div>
+
+                </div>
+                <div class="burger">
+
+
+
+
                 </div>
               </div>
+              <form class="button">
+
+                <button class="button__main-clear"><a>Delete</a></button>
+                <button class="button__main-confirm"><a>Preview</a></button>
+
+              </form>
             </div>
-            <div class="instructions">
-              <div class="instructions__body">
-                <div class="instructions__content">
-                  <div class="instructions__close"><a>X</a></div>
-                  <div class="instructions__title">
-                    <form>
-                      <p>
-                        You are now on the "kitchen", where you can create your
-                        own burger. In order to start, just drag the toping you
-                        like into the table.
-                      </p>
-                      <div class="instructions__button">
-                        <button class="instructions__main-ok button__main-confirm">
-                          <a>Ok</a>
-                        </button>
-                      </div>
-                    </form>
-                  </div>
-                </div>
+            <div class="ingridients-right-nav ingridients-nav">
+              <div class="arrow-previous arrow-previous-right"></div>
+              <div class="arrow-next arrow-next-right "></div>
+              <div class="kitchen-elements-right kitchen-ingridients">
+
+
+
+                <img class="draggable" src="../img/kitchen/elements/13.png" alt="">
+
+                <img class="draggable" src="../img/kitchen/elements/14.png" alt="">
+
+                <img class="draggable" src="../img/kitchen/elements/15.png" alt="">
+
+                <img class="draggable" src="../img/kitchen/elements/16.png" alt="">
+
+                <img class="draggable" src="../img/kitchen/elements/17.png" alt="">
+
+                <img class="draggable" src="../img/kitchen/elements/18.png" alt="">
+
+                <img class="draggable" src="../img/kitchen/elements/19.png" alt="">
+
+                <img class="draggable" src="../img/kitchen/elements/20.png" alt="">
+
+                <img class="draggable" src="../img/kitchen/elements/21.png" alt="">
+
+                <img class="draggable" src="../img/kitchen/elements/22.png" alt="">
+
+                <img class="draggable" src="../img/kitchen/elements/23.png" alt="">
+
+                <img class="draggable" src="../img/kitchen/elements/24.png" alt="">
+
+
               </div>
+
             </div>
           </div>
-        </section>
-      </main>
-    </div>
-    <script src="../js/kitchen.js"></script>
-  </body>
+          <div id="delete-modal" class="delete-modal">
+            <div class="delete-modal__body">
+              <div class="delete-modal__content">
+                <div class="delete-modal__close"><a>X</a></div>
+                <div class="delete-modal__title">
+                  <form>
+                    <p>Do you want to delete this burger?<br>
+                      Afterwards it can't be restored.
+                    </p>
+
+                    <div class="delete-modal__button">
+                      <button class="delete-modal__main-clear"><a>Yes</a></button>
+                      <button id="button-cancel" class=" button__main-confirm"><a>No</a></button>
+                    </div>
+
+                  </form>
+                </div>
+
+              </div>
+            </div>
+
+
+          </div>
+          <div class="instructions">
+            <div class="instructions__body">
+              <div class="instructions__content">
+                <div class="instructions__close"><a>X</a></div>
+                <div class="instructions__title">
+                  <form>
+                    <p>You are now on the "kitchen", where you can create your own burger. In order to start, just drag
+                      the toping you like into the table.
+                    </p>
+                    <div class="instructions__button">
+                      <button class="instructions__main-ok button__main-confirm"><a>Ok</a></button>
+                    </div>
+
+                  </form>
+                </div>
+
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div class="rotate-gif-modal">
+    <div class="rotate-gif"></div>
+  </div>
+
+  <script type="module" src="../js/kitchen.js"></script>
+  <!-- <script src="../js/kitchen/DragDropTouch.js"></script> -->
+  <script src="https://raw.githack.com/SortableJS/Sortable/master/Sortable.js"></script>
+</body>
+
+
 </html>

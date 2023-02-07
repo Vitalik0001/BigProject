@@ -590,3 +590,97 @@ prevArrowRight.addEventListener('click', function () {
 function scrollToIndex(index, draggablesInSlider, slider) {
     slider.scrollTop = draggablesInSlider[index].offsetTop;
 }
+
+//old drag
+//drag and drop 
+    // function setDragListener() {
+    //     draggables.forEach(draggable => {
+
+
+    //         draggable.addEventListener('dragstart', () => {
+
+    //             copyIngridient = draggable.parentElement.dataset.ingridient;
+
+    //             draggable.classList.add('dragging')
+
+    //             copy = draggable.cloneNode(true);
+
+    //             copy.classList.remove('dragging');
+
+    //         })
+
+
+    //         draggable.addEventListener('dragend', () => {
+    //             draggable.classList.remove('dragging')
+
+
+    //             const ingridientOrigin = document.querySelector(`[data-ingridient='${copyIngridient}']`);
+
+    //             if (!ingridientOrigin || ingridientOrigin.children.length > 0) {
+    //                 return
+    //             } else {
+    //                 ingridientOrigin.append(copy);
+    //             }
+    //             draggables = document.querySelectorAll('.draggable');
+
+    //             setDragListener()
+
+    //             setRemove();
+
+    //         })
+
+
+    //     })
+    // }
+
+    // setDragListener()
+
+
+
+    // burger.addEventListener('dragover', (e) => {
+    //     e.preventDefault()
+
+    //     const afterElement = getDragAfterElement(burger, e.clientY)
+    //     const draggable = document.querySelector('.dragging')
+    //     if (afterElement == null) {
+
+    //         burger.appendChild(draggable)
+    //     } else {
+    //         burger.insertBefore(draggable, afterElement)
+    //     }
+
+
+    //     const draggablesInBurger = burger.querySelectorAll('.draggable');
+    //     const zIndices = [...Array(draggablesInBurger.length).keys()].reverse().map(i => i);
+
+    //     draggablesInBurger.forEach((draggable, i) => {
+
+    //         draggable.style.zIndex = zIndices[i];
+    //         draggable.style.cursor = 'move';
+    //     })
+
+
+
+
+    // });
+
+    // function getDragAfterElement(burger, y) {
+    //     const draggableElements = [...burger.querySelectorAll('.draggable:not(.dragging)')]
+
+    //     return draggableElements.reduce((closest, child) => {
+    //         const box = child.getBoundingClientRect()
+    //         const offset = y - box.top - box.height / 2
+    //         if (offset < 0 && offset > closest.offset) {
+    //             return { offset: offset, element: child }
+    //         } else {
+    //             return closest
+    //         }
+    //     }, { offset: Number.NEGATIVE_INFINITY }).element
+    // }
+
+    // function setRemove() {
+    //     burger.querySelectorAll('.draggable').forEach(ingridient => {
+
+    //         ingridient.style.content = "'before'";
+    //     });
+    // }

@@ -104,8 +104,17 @@ const swiper = new Swiper(".image-slider", {
   loop: true,
   loopedSlides: 4,
   breakpoints: {
-    661:  {
+    661: {
       slidePerView: 1,
     }
   }
 });
+const burgersFromLocalStorage = JSON.parse(localStorage.getItem('burgers'));
+const totalBurgersCounter = document.querySelector('.header__order-counter a');
+if (burgersFromLocalStorage === null) {
+
+  totalBurgersCounter.textContent = '0';
+} else {
+  totalBurgersCounter.textContent = burgersFromLocalStorage.length;
+}
+/* Buttons */

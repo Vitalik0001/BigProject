@@ -49,14 +49,10 @@ svg {
 }
 
 /* Styles main settings */
-html,
-body {
+html, body {
   height: 100%;
   min-width: 320px;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
+  overflow-x: hidden;
 }
 
 body {
@@ -142,7 +138,7 @@ header {
   background-color: #0c0c0c;
   cursor: pointer;
 }
-.header__order-counter {
+.header .header__order-counter {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -152,7 +148,7 @@ header {
   right: 7%;
   top: 10%;
 }
-.header__order-counter a {
+.header .header__order-counter a {
   text-align: center;
   margin-top: 3px;
   font-size: 12px;
@@ -334,6 +330,11 @@ header {
   padding: 0 10px;
   margin: 0 auto;
 }
+@media (max-width: 550px) {
+  .burger-maker__container {
+    max-height: 165vh;
+  }
+}
 .burger-maker__kitchen {
   display: grid;
   grid-template-columns: 3fr 12fr 3fr;
@@ -343,7 +344,7 @@ header {
     grid-template-columns: 4fr 12fr 4fr;
   }
 }
-@media (max-width: 600px) {
+@media (max-width: 550px) {
   .burger-maker__kitchen {
     display: flex;
     flex-direction: column;
@@ -356,30 +357,35 @@ header {
   margin: auto 0;
   padding-top: -50px;
 }
-@media (max-width: 600px) {
+@media (max-width: 550px) {
   .ingridients-nav {
     max-height: 450px;
     rotate: 90deg;
     max-width: 200px;
     margin: 0 auto;
+    margin-top: 30px;
   }
   .ingridients-nav .draggable {
     rotate: 270deg;
     margin: 50px 0px;
   }
 }
-
-@media (max-width: 600px) {
-  .ingridients-right-nav {
-    order: 2;
-    transform: translateX(-150px);
+@media (max-height: 600px) {
+  .ingridients-nav {
+    max-height: 230px;
+    margin-top: 10vh;
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 550px) {
+  .ingridients-right-nav {
+    order: 1;
+  }
+}
+
+@media (max-width: 550px) {
   .ingridients-left-nav {
     order: 3;
-    transform: translateX(-450px);
   }
 }
 
@@ -420,7 +426,7 @@ header {
   margin-right: auto;
   left: 0;
   right: 0;
-  bottom: -20px;
+  bottom: -60px;
   text-align: center;
   position: absolute;
   transition: 0.2s;
@@ -445,10 +451,9 @@ header {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
-@media (max-width: 600px) {
+@media (max-height: 600px) {
   .kitchen-ingridients {
-    display: flex;
-    flex-direction: column;
+    max-height: 230px;
   }
 }
 .kitchen-ingridients::-webkit-scrollbar {
@@ -471,9 +476,16 @@ header {
   width: 100%;
   min-height: 25vh;
 }
-@media (max-width: 600px) {
+@media (max-width: 550px) {
   .kitchen-burger-holder {
     min-height: 0;
+    margin-bottom: 0;
+  }
+}
+@media (max-height: 600px) {
+  .kitchen-burger-holder {
+    margin-top: 0;
+    margin-bottom: 0;
   }
 }
 .kitchen-burger-holder .trash {
@@ -493,6 +505,12 @@ header {
   background-repeat: no-repeat;
   cursor: pointer;
 }
+@media (max-width: 700px) {
+  .kitchen-burger-holder .trash {
+    width: 90px;
+    height: 165px;
+  }
+}
 .kitchen-burger-holder .trash:active .trash-lid {
   -webkit-animation: opening-lid-active 0.4s forwards !important;
           animation: opening-lid-active 0.4s forwards !important;
@@ -501,6 +519,9 @@ header {
   position: relative;
   width: 100%;
   height: 100px;
+}
+.kitchen-burger-holder .trash .draggable {
+  display: none;
 }
 .kitchen-burger-holder .trash-lid {
   bottom: 0px;
@@ -515,6 +536,11 @@ header {
   -webkit-animation: closing-lid 1s;
           animation: closing-lid 1s;
   z-index: -1;
+}
+@media (max-width: 700px) {
+  .kitchen-burger-holder .trash-lid {
+    height: 27px;
+  }
 }
 .kitchen-burger-holder .trash-can {
   background-position-x: center;
@@ -637,6 +663,11 @@ header {
   align-items: center;
   transition: 0.3s ease-in-out;
 }
+@media (max-height: 600px) {
+  .burger {
+    height: 70%;
+  }
+}
 .burger .draggable {
   transition: 0.7s;
   position: relative;
@@ -664,20 +695,6 @@ header {
   overflow-x: hidden;
 }
 
-.burger-ingridient {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  margin: 20px 0;
-}
-.burger-ingridient img {
-  max-width: 95%;
-  cursor: move;
-}
-.burger-ingridient .draggable {
-  transform: translateY(-15px);
-}
-
 .kitchen-center {
   display: flex;
   flex-direction: column;
@@ -686,9 +703,9 @@ header {
   max-width: 90%;
   margin: 0 auto;
 }
-@media (max-width: 600px) {
+@media (max-width: 550px) {
   .kitchen-center {
-    order: 1;
+    order: 2;
   }
 }
 
@@ -702,7 +719,13 @@ header {
   margin: 50px 0;
   transition: 0.3s;
 }
+@media (max-height: 600px) {
+  .button {
+    margin-top: 10px;
+  }
+}
 .button__main-clear {
+  box-sizing: border-box;
   padding: 14px 49px;
   background: none;
   color: white;
@@ -722,7 +745,7 @@ header {
   border: 2px solid rgb(176, 0, 0);
 }
 .button__main-confirm {
-  padding: 15px 50px;
+  padding: 15px 40px;
   background-color: rgb(73, 195, 11);
   border-radius: 7px;
   color: white;
@@ -799,7 +822,7 @@ header {
 
 .added {
   padding: 5px 15px;
-  background-color: rgba(46, 49, 45, 0.67);
+  background-color: rgba(133, 246, 95, 0.67);
   border-radius: 4px;
   color: white;
   font-size: 18px;
@@ -825,6 +848,28 @@ header {
   -ms-user-select: none; /* IE 10 and IE 11 */
   -moz-user-select: none;
        user-select: none; /* Standard syntax */
+}
+
+.rotate-gif-modal {
+  z-index: 100000000000000;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 100vh;
+  width: 100vw;
+  background-color: #000;
+  display: none;
+}
+.rotate-gif-modal .rotate-gif {
+  background-image: url(../img/kitchen/rotate-phone.gif);
+  background-position-x: center;
+  background-position-y: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 50vw;
+  height: 90vh;
+  margin: auto;
 }
 
 /* Footer */
