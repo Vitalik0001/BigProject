@@ -10,17 +10,38 @@ const popupThanks = document.querySelector(".popup__thanks");
 const inputs = document.querySelectorAll("input");
 const inputNumber = document.getElementById("phone_number");
 
+const emptyOrder = document.querySelector(".popup__thanks p");
+
 /* Show modal */
 
 function showPopup() {
-  buttonConfirm.addEventListener("click", (e) => {
-    e.preventDefault();
-    popup.classList.add("show_popup");
-    body.style.overflow = "hidden";
-    closeModal();
-  });
+  if (localStorage.length > 0) {
+    buttonConfirm.addEventListener("click", (e) => {
+      e.preventDefault();
+      popup.classList.add("show_popup");
+      body.style.overflow = "hidden";
+      closeModal();
+    });
+  } else {
+    let timer;
+    buttonConfirm.addEventListener("click", (e) => {
+      e.preventDefault();
+      clearTimeout(timer);
+      popup.classList.add("show_popup");
+      body.style.overflow = "hidden";
+      popupTitle.classList.add("hide_title");
+      emptyOrder.innerHTML = 'Please, check your order';
+      popupThanks.classList.add("show_thanks");
+      timer = setTimeout(() => {
+        popup.classList.remove("show_popup");
+        body.style.overflow = "";
+      }, 4000);
+      closeModal();
+    });
+  }
 }
 showPopup();
+
 
 /* Close first window */
 
@@ -92,5 +113,45 @@ function hideTitle() {
       popup.classList.remove("show_popup");
       body.style.overflow = "";
     }, 4000);
+    localStorage.clear();
   }
 }
+
+/* function sum order */
+
+function sumOrder() {
+  const windowListOrder = document.querySelector(".window__list");
+  const totalSum = document.querySelector('.main__total');
+  const headerLogo = document.querySelector('.header__text');
+
+  let counter = 0;
+
+  if (localStorage.length > 0) {
+    for (let i = 2; i <= localStorage.length; i++) { 
+      counter++;
+      let li = document.createElement('li');
+      li.innerHTML = localStorage.getItem(`Burger #${counter}`);
+      windowListOrder.append(li);
+    }
+
+    let totalSumOrder = document.createElement('a');
+    totalSumOrder.innerHTML = `<span>Total:</span> ${localStorage.getItem('Total')}$`;
+    totalSum.append(totalSumOrder);
+  } else {
+    const aFirstTag = document.createElement('a');
+    aFirstTag.innerHTML = 'There is nothing to order :(';
+    windowListOrder.append(aFirstTag);
+    const aSecondTag = document.createElement('a');
+    aSecondTag.innerHTML = '* Before ordering, create your burger in the "kitchen" section *';
+    windowListOrder.append(aSecondTag);
+
+    let totalSumOrder = document.createElement('a');
+    totalSumOrder.innerHTML = `<span>Total:</span> 0$`;
+    totalSum.append(totalSumOrder);
+  }
+
+  headerLogo.addEventListener('click', () => {
+    localStorage.clear();
+  });
+}
+sumOrder();
