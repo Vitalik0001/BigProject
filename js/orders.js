@@ -143,5 +143,46 @@ window.addEventListener('load', () => {
 
   }
 
+  function sumOrder() {
+    const burgersFromLocalStorage = JSON.parse(localStorage.getItem('burgers'));
+    const windowListOrder = document.querySelector(".window__list");
+    const totalSum = document.querySelector('.main__total');
+
+
+    let counter = 0;
+
+    if (burgersFromLocalStorage.length > 0) {
+      burgersFromLocalStorage.forEach(burger => {
+        counter++;
+        let li = document.createElement('li');
+        li.innerHTML = `Burger #${counter} - ${burger.length}$`;
+        windowListOrder.append(li);
+      })
+
+
+
+      let totalSumOrder = document.createElement('a');
+      let totalPrice = 0;
+      burgersFromLocalStorage.forEach(burger => {
+        totalPrice += burger.length;
+      })
+      totalSumOrder.innerHTML = `<span>Total:</span> ${totalPrice}$`;
+      totalSum.append(totalSumOrder);
+    } else {
+      const aFirstTag = document.createElement('a');
+      aFirstTag.innerHTML = 'There is nothing to order :(';
+      windowListOrder.append(aFirstTag);
+      const aSecondTag = document.createElement('a');
+      aSecondTag.innerHTML = '* Before ordering, create your burger in the "kitchen" section *';
+      windowListOrder.append(aSecondTag);
+
+      let totalSumOrder = document.createElement('a');
+      totalSumOrder.innerHTML = `<span>Total:</span> 0$`;
+      totalSum.append(totalSumOrder);
+    }
+
+
+  }
+  sumOrder();
 
 });

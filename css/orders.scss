@@ -304,6 +304,7 @@ header{
 /* Popup */
 
 .popup {
+  z-index: 100000;
   position: fixed;
   height: 100%;
   width: 100%;

@@ -86,6 +86,12 @@ body {
 }
 
 /* Header */
+header {
+  position: fixed;
+  width: 100vw;
+  z-index: 1000000000000000000;
+}
+
 .header {
   background-color: #0c0c0c;
 }
@@ -108,7 +114,7 @@ body {
   transition: all 0.2s ease;
 }
 .header__text:active {
-  color: rgb(255, 145, 0);
+  color: rgb(255, 173, 85);
   font-size: 28px;
 }
 .header__orders {
@@ -130,6 +136,24 @@ body {
 .header__button-orders {
   background-color: #0c0c0c;
   cursor: pointer;
+}
+.header .header__order-counter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color: rgb(254, 184, 54);
+  position: absolute;
+  right: 7%;
+  top: 10%;
+}
+.header .header__order-counter a {
+  text-align: center;
+  margin-top: 3px;
+  font-size: 12px;
+  color: white;
+  width: 25px;
+  height: 22px;
 }
 
 /* Main */
