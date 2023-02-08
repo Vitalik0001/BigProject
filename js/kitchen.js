@@ -28,7 +28,10 @@ window.addEventListener("load", () => {
     //check phone direction
     const rotateModal = document.querySelector('.rotate-gif-modal');
     if (screen.height < 520)
-        burgerMakerKitchen.style.marginTop = '25vh';
+        burgerMakerKitchen.style.marginTop = '17vh';
+    if (screen.height < 1200 && screen.height > 520) {
+        burgerMakerKitchen.style.marginTop = '-5vh';
+    }
     if (window.matchMedia("(orientation:portrait)").matches) {
         rotateModal.style.display = 'block';
         body.style.overflow = 'hidden';
@@ -195,8 +198,10 @@ window.addEventListener("load", () => {
         isSaved = true;
 
         burger.querySelectorAll('.draggable').forEach(ingridient => {
-            ingridient.style.marginTop = '-20%';
-
+            ingridient.style.marginTop = '-18%';
+            if (screen.height < 600) {
+                ingridient.style.marginTop = '-26%';
+            }
         })
         let saved = document.createElement('div')
         saved.classList.add('saved');
