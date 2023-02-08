@@ -121,6 +121,7 @@ header {
 }
 .header__orders {
   margin: 12px 52px 8px 0px;
+  display: flex;
 }
 .header__orders img {
   width: 43px;
@@ -139,23 +140,21 @@ header {
   background-color: #0c0c0c;
   cursor: pointer;
 }
-.header .header__order-counter {
+.header__order-counter {
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 50%;
+  width: 25px;
+  height: 24px;
+  margin-top: -2px;
+  margin-left: -13px;
   background-color: rgb(254, 184, 54);
-  position: absolute;
-  right: 7%;
-  top: 10%;
 }
-.header .header__order-counter a {
+.header__order-counter a {
   text-align: center;
-  margin-top: 3px;
   font-size: 12px;
   color: white;
-  width: 25px;
-  height: 22px;
 }
 
 /* Main */
@@ -247,6 +246,9 @@ header {
           backdrop-filter: blur(10px);
   top: 0;
   left: 0;
+  opacity: 0;
+  visibility: hidden;
+  display: none;
   overflow-y: auto;
   overflow-x: hidden;
   transition: all 0.5s ease;
@@ -316,6 +318,7 @@ header {
 .show_popup {
   opacity: 1;
   visibility: visible;
+  display: block;
 }
 
 .hide_title {
@@ -355,12 +358,13 @@ header {
   position: relative;
   margin: auto 0;
   padding-top: -50px;
+  max-width: 240px;
 }
 @media (max-width: 550px) {
   .ingridients-nav {
     max-height: 450px;
     rotate: 90deg;
-    max-width: 200px;
+    max-width: 220px;
     margin: 0 auto;
     margin-top: 30px;
   }
@@ -834,5 +838,3 @@ header {
   height: 90vh;
   margin: auto;
 }
-
-/* Footer */
