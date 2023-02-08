@@ -91,8 +91,8 @@ window.addEventListener("load", () => {
     if (!isEmpty) {
       popupTitle.classList.add("hide_title");
       popupThanks.classList.add("show_thanks");
-      localStorage.setItem(`burgers`, JSON.stringify([]));
       localStorage.clear();
+      localStorage.setItem('burgers', JSON.stringify([]));
       setTimeout(() => {
         popup.classList.remove("show_popup");
         body.style.overflow = "";

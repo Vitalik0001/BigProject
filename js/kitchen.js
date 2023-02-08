@@ -416,9 +416,11 @@ window.addEventListener("load", () => {
 
       if (burgersInLSUpdated.length !== 0) {
         counter.parentElement.style.display = "flex";
+
         counter.textContent = burgersInLSUpdated.length;
       } else {
         burgersInLSUpdated = [];
+
         counter.parentElement.style.display = "none";
       }
     } else {
@@ -452,7 +454,9 @@ window.addEventListener("load", () => {
   new Sortable(burger, {
     group: "shared",
     chosenClass: "dragging",
+
     animation: 150,
+
     onEnd: function (/**Event*/ evt) {
       if (evt.to.classList.contains("trash")) {
         evt.item.parentNode.removeChild(evt.item);
