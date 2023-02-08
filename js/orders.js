@@ -1,5 +1,4 @@
-window.addEventListener('load', () => {
-
+window.addEventListener("load", () => {
   loadIntoBurgerSlider();
 
   const buttonConfirm = document.querySelector(".button__main-confirm");
@@ -10,6 +9,7 @@ window.addEventListener('load', () => {
   const popupButtonConfirm = document.querySelector(".popup__button button");
   const popupTitle = document.querySelector(".popup__title");
   const popupThanks = document.querySelector(".popup__thanks");
+  const popupEmptyOrder = document.querySelector(".popup__empty-order");
 
   const inputs = document.querySelectorAll("input");
   const inputNumber = document.getElementById("phone_number");
@@ -24,7 +24,7 @@ window.addEventListener('load', () => {
       closeModal();
     });
   }
-  showPopup();
+
 
   /* Close first window */
 
@@ -101,56 +101,50 @@ window.addEventListener('load', () => {
     }
   }
 
-
-
   function loadIntoBurgerSlider() {
-    const burgersCarousel = document.querySelector('#burgers-carousel');
-    let burgersFromLocalStorage = JSON.parse(localStorage.getItem('burgers'));
-    const totalBurgersCounter = document.querySelector('.header__order-counter a');
+    const burgersCarousel = document.querySelector("#burgers-carousel");
+    let burgersFromLocalStorage = JSON.parse(localStorage.getItem("burgers"));
+    const totalBurgersCounter = document.querySelector(
+      ".header__order-counter a"
+    );
     if (burgersFromLocalStorage) {
       totalBurgersCounter.textContent = burgersFromLocalStorage.length;
-
-
     } else {
       burgersFromLocalStorage = [];
 
-
       totalBurgersCounter.remove();
-      localStorage.removeItem('burgers');
+      localStorage.removeItem("burgers");
     }
 
-
-
-
-    let burgersCarouselInside = '';
+    let burgersCarouselInside = "";
     if (burgersFromLocalStorage) {
-      burgersFromLocalStorage.forEach(burger => {
-        let burgerInside = '';
-        burger.forEach(ingridientUrl => {
-
-          burgerInside += `<img class="burger-ingridient" src="${ingridientUrl}">`
-
-
+      burgersFromLocalStorage.forEach((burger) => {
+        let burgerInside = "";
+        burger.forEach((ingridientUrl) => {
+          burgerInside += `<img class="burger-ingridient" src="${ingridientUrl}">`;
         });
         burgersCarouselInside += `<div class="burger">${burgerInside}</div>`;
       });
     }
     burgersCarousel.innerHTML += burgersCarouselInside;
 
-    const burgersInside = document.querySelectorAll('.burger');
+    const burgersInside = document.querySelectorAll(".burger");
 
-    burgersInside.forEach(burger => {
-      const ingridientsInBurger = burger.querySelectorAll('.burger-ingridient');
-      const zIndices = [...Array(ingridientsInBurger.length).keys()].reverse().map(i => i);
+    burgersInside.forEach((burger) => {
+      const ingridientsInBurger = burger.querySelectorAll(".burger-ingridient");
+      const zIndices = [...Array(ingridientsInBurger.length).keys()]
+        .reverse()
+        .map((i) => i);
 
       ingridientsInBurger.forEach((ingridient, i) => {
-        ingridient.style.position = 'relative';
+        ingridient.style.position = "relative";
         ingridient.style.zIndex = zIndices[i];
-        ingridient.setAttribute('draggable', false);
-
-      })
-    })
-
+        ingridient.setAttribute("draggable", false);
+      });
+    });
+    if (burgersFromLocalStorage == null) {
+      localStorage.removeItem('burgers');
+    }
   }
   function setPrice(number) {
     switch (number) {
@@ -214,111 +208,125 @@ window.addEventListener('load', () => {
     return "";
   }
 
-
-
   function sumOrder() {
-    const burgersFromLocalStorage = JSON.parse(localStorage.getItem('burgers'));
+    const burgersFromLocalStorage = JSON.parse(localStorage.getItem("burgers"));
     const windowListOrder = document.querySelector(".window__list");
+    const mainTotal = document.querySelector(".main__total");
+    const totalSum = document.querySelector(".main__total");
+    const textOrderEmpty = document.querySelector(".window__text");
+    const mainWindow = document.querySelector(".main__window");
+    const burgersCarousel = document.getElementById('burgers-carousel');
 
-    const totalSum = document.querySelector('.main__total');
-
-
-    windowListOrder.innerHTML = '';
-    totalSum.innerHTML = '';
+    windowListOrder.innerHTML = "";
+    totalSum.innerHTML = "";
     let counter = 0;
 
     if (burgersFromLocalStorage && burgersFromLocalStorage.length > 0) {
-      burgersFromLocalStorage.forEach(burger => {
+      burgersFromLocalStorage.forEach((burger) => {
         counter++;
         let priceOfBurger = 0;
-        let li = document.createElement('li');
-        burger.forEach(ingridient => {
+        let li = document.createElement("li");
+        burger.forEach((ingridient) => {
           priceOfBurger += setPrice(+extractNumberFromString(ingridient));
-        })
+        });
         li.innerHTML = `Burger #${counter} - ${priceOfBurger}$`;
         windowListOrder.append(li);
-      })
-
-      let totalSumOrder = document.createElement('a');
+      });
+      burgersCarousel.style = 'overflow: visibility; opacity: 1;';
+      let totalSumOrder = document.createElement("a");
+      mainTotal.style = 'overflow: visibility; opacity: 1;';
       let totalPrice = 0;
-      burgersFromLocalStorage.forEach(burger => {
-        burger.forEach(ingridient => {
-
+      burgersFromLocalStorage.forEach((burger) => {
+        burger.forEach((ingridient) => {
           totalPrice += setPrice(+extractNumberFromString(ingridient));
-
-        })
-
-      })
+        });
+      });
       totalSumOrder.innerHTML = `<span>Total:</span> ${totalPrice}$`;
       totalSum.append(totalSumOrder);
+      showPopup();
     } else {
-      const aFirstTag = document.createElement('a');
-      aFirstTag.innerHTML = 'There is nothing to order :(';
+      const aFirstTag = document.createElement("a");
+      textOrderEmpty.style = 'align-self: center';
+      mainWindow.style = 'padding-left: 55px;';
+      aFirstTag.innerHTML = "There is nothing to order :(";
       windowListOrder.append(aFirstTag);
-      const aSecondTag = document.createElement('a');
-      aSecondTag.innerHTML = '* Before ordering, create your burger in the "kitchen" section *';
+      mainTotal.style = 'overflow: hidden; opacity: 0;';
+      const aSecondTag = document.createElement("a");
+      aSecondTag.innerHTML =
+        '* Before ordering, create your burger in the "kitchen" section *';
       windowListOrder.append(aSecondTag);
+      let timer;
+      burgersCarousel.style = 'display: none';
+      buttonConfirm.addEventListener("click", (e) => {
+        e.preventDefault();
+        clearTimeout(timer);
+        popup.classList.add("show_popup");
+        body.style.overflow = "hidden";
+        popupTitle.classList.add("hide_title");
+        popupEmptyOrder.classList.add("show_thanks");
+        timer = setTimeout(() => {
+          popup.classList.remove("show_popup");
+          body.style.overflow = "";
+          location.reload();
+        }, 4000);
+        closeModal();
+      });
 
-      let totalSumOrder = document.createElement('a');
+      let totalSumOrder = document.createElement("a");
       totalSumOrder.innerHTML = `<span>Total:</span> 0$`;
       totalSum.append(totalSumOrder);
     }
-
-
   }
   sumOrder();
 
-
   let burgerList = document.querySelectorAll(".burger");
-  const burgerNumber = document.querySelector('.burger-number');
+  const burgerNumber = document.querySelector(".burger-number");
   const prevButton = document.querySelector(".arrow-previous");
   const nextButton = document.querySelector(".arrow-next");
-  const burgersCarousel = document.querySelector('#burgers-carousel');
-  const deleteBurger = document.querySelector('.delete-burger');
+  const burgersCarousel = document.querySelector("#burgers-carousel");
+  const deleteBurger = document.querySelector(".delete-burger");
 
   let currentIndex = 0;
-  burgerNumber.innerHTML = '#' + `${currentIndex + 1}`;
+  burgerNumber.innerHTML = "#" + `${currentIndex + 1}`;
 
-  loadBurgerOnSlider()
+  loadBurgerOnSlider();
 
-  deleteBurger.addEventListener('click', (e) => {
-
+  deleteBurger.addEventListener("click", (e) => {
     e.preventDefault();
     // const totalBurgersCounter = document.querySelector('.header__order-counter a');
-    const activeBurger = document.querySelector('.burger.active');
+    const activeBurger = document.querySelector(".burger.active");
     activeBurger.remove();
-    burgerList = document.querySelectorAll(".burger")
+    burgerList = document.querySelectorAll(".burger");
     currentIndex = (currentIndex - 1 + burgerList.length) % burgerList.length;
-    burgerNumber.innerHTML = '#' + `${currentIndex + 1}`;
-
-
+    burgerNumber.innerHTML = "#" + `${currentIndex + 1}`;
 
     loadBurgerOnSlider();
     saveBurgers();
     sumOrder();
-
-  })
+  });
 
   nextButton.addEventListener("click", () => {
     burgerList[currentIndex].classList.remove("active");
     currentIndex = (currentIndex - 1 + burgerList.length) % burgerList.length;
-    loadBurgerOnSlider()
-    burgersCarousel.style.height = (burgerList[currentIndex].children.length * 40) + 'px';
-    if ((burgerList[currentIndex].children.length * 50) < 300) {
-      burgersCarousel.style.height = '300px';
+    loadBurgerOnSlider();
+    burgersCarousel.style.height =
+      burgerList[currentIndex].children.length * 40 + "px";
+    if (burgerList[currentIndex].children.length * 50 < 300) {
+      burgersCarousel.style.height = "300px";
     }
-    burgerNumber.innerHTML = '#' + `${currentIndex + 1}`;
+    burgerNumber.innerHTML = "#" + `${currentIndex + 1}`;
   });
 
   prevButton.addEventListener("click", () => {
     burgerList[currentIndex].classList.remove("active");
     currentIndex = (currentIndex + 1) % burgerList.length;
-    loadBurgerOnSlider()
-    burgersCarousel.style.height = (burgerList[currentIndex].children.length * 40) + 'px';
-    if ((burgerList[currentIndex].children.length * 50) < 300) {
-      burgersCarousel.style.height = '300px';
+    loadBurgerOnSlider();
+    burgersCarousel.style.height =
+      burgerList[currentIndex].children.length * 40 + "px";
+    if (burgerList[currentIndex].children.length * 50 < 300) {
+      burgersCarousel.style.height = "300px";
     }
-    burgerNumber.innerHTML = '#' + `${currentIndex + 1}`;
+    burgerNumber.innerHTML = "#" + `${currentIndex + 1}`;
   });
 
   function loadBurgerOnSlider() {
@@ -328,29 +336,27 @@ window.addEventListener('load', () => {
     burgerList[currentIndex].classList.add("active");
   }
 
-
   function saveBurgers() {
     const burgersToLocalStorage = [];
-    const burgersToSave = document.querySelectorAll('.burger');
-    burgersToSave.forEach(burger => {
-      const ingridientsInBurger = burger.querySelectorAll('img.burger-ingridient');
+    const burgersToSave = document.querySelectorAll(".burger");
+    burgersToSave.forEach((burger) => {
+      const ingridientsInBurger = burger.querySelectorAll(
+        "img.burger-ingridient"
+      );
       if (ingridientsInBurger.length > 0) {
         const burgerIngridientsArray = [];
         ingridientsInBurger.forEach((ingridient) => {
-          const url = new URL(ingridient.src)
+          const url = new URL(ingridient.src);
           burgerIngridientsArray.push(url.pathname);
-        })
+        });
         burgersToLocalStorage.push(burgerIngridientsArray);
-        localStorage.setItem(`burgers`, JSON.stringify(burgersToLocalStorage))
-        console.log('success')
+        localStorage.setItem(`burgers`, JSON.stringify(burgersToLocalStorage));
+        console.log("success");
       }
-    })
+    });
 
-    localStorage.setItem('burgers', JSON.stringify(burgersToLocalStorage));
-
+    localStorage.setItem("burgers", JSON.stringify(burgersToLocalStorage));
   }
-
-
-
-
 });
+
+

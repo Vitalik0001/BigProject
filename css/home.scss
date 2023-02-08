@@ -61,14 +61,14 @@ body {
   background: url(../img/bg.jpg) no-repeat center center fixed;
   background-size: cover;
   scroll-behavior: smooth;
-    /* Hide scrollbar for Chrome, Safari and Opera */
-    &::-webkit-scrollbar {
-      display: none;
-    }
-    -ms-overflow-style: none; /* IE and Edge */
-    scrollbar-width: none; /* Firefox */
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }
-html{
+html {
   background-color: #000000;
 }
 body {
@@ -96,7 +96,7 @@ body {
 
 /* Header */
 
-header{
+header {
   position: fixed;
   width: 100vw;
   z-index: 1000000000000000000;
@@ -131,6 +131,7 @@ header{
 
   &__orders {
     margin: 12px 52px 8px 0px;
+    display: flex;
   }
 
   &__orders img {
@@ -153,30 +154,28 @@ header{
     background-color: #0c0c0c;
     cursor: pointer;
   }
-  .header__order-counter {
+  &__order-counter {
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 50%;
+    width: 25px;
+    height: 24px;
+    margin-top: -2px;
+    margin-left: -13px;
     background-color: rgb(254, 184, 54);
-    position: absolute;
-    right: 7%;
-    top: 10%;
   }
-  .header__order-counter a {
+  &__order-counter a {
     text-align: center;
-    margin-top: 3px;
     font-size: 12px;
     color: white;
-    width: 25px;
-    height: 22px;
   }
 }
 
 /* Main */
 
 .main {
-  margin-top: 10vh ;
+  margin-top: 10vh;
   &__content {
     display: flex;
     color: white;
@@ -431,7 +430,7 @@ header{
     }
   }
 
-  .image-slider { 
+  .image-slider {
     & .swiper-button-prev {
       position: absolute;
       top: 57%;
@@ -483,7 +482,7 @@ header{
     }
   }
 
-  .image-slider { 
+  .image-slider {
     & .swiper-button-prev {
       position: absolute;
       top: 64%;
@@ -556,7 +555,7 @@ header{
     }
   }
 
-  .image-slider { 
+  .image-slider {
     & .swiper-button-prev {
       display: none;
     }
@@ -629,3 +628,6 @@ header{
     min-height: 300px;
   }
 }
+
+
+

@@ -71,7 +71,7 @@
 
 /* Draggable slider */
 
-import Swiper from 'https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.esm.browser.min.js';
+import Swiper from "https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.esm.browser.min.js";
 
 const swiper = new Swiper(".image-slider", {
   navigation: {
@@ -80,7 +80,7 @@ const swiper = new Swiper(".image-slider", {
   },
 
   pagination: {
-    el: '.swiper-pagination',
+    el: ".swiper-pagination",
     clickable: true,
   },
 
@@ -88,7 +88,7 @@ const swiper = new Swiper(".image-slider", {
   keyboard: {
     enabled: true,
     onlyViewport: true,
-    pageUpDown: true
+    pageUpDown: true,
   },
 
   slidesPerView: 1,
@@ -106,15 +106,29 @@ const swiper = new Swiper(".image-slider", {
   breakpoints: {
     661: {
       slidePerView: 1,
-    }
-  }
+    },
+  },
 });
-const burgersFromLocalStorage = JSON.parse(localStorage.getItem('burgers'));
+let burgersInLocalStorage = JSON.parse(localStorage.getItem('burgers'));
 const totalBurgersCounter = document.querySelector('.header__order-counter a');
-if (burgersFromLocalStorage === null) {
 
-  totalBurgersCounter.remove();
+
+
+if (burgersInLocalStorage !== null) {
+  if (burgersInLocalStorage.length > 0) {
+
+
+    totalBurgersCounter.parentElement.style.display = 'flex';
+
+    totalBurgersCounter.textContent = burgersInLocalStorage.length;
+  } else {
+    totalBurgersCounter.parentElement.style.display = 'none';
+  }
+
+
 } else {
-  totalBurgersCounter.textContent = burgersFromLocalStorage.length;
+  burgersInLocalStorage = [];
+
+  totalBurgersCounter.parentElement.style.display = 'none';
 }
 /* Buttons */

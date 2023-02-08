@@ -421,8 +421,17 @@ window.addEventListener("load", () => {
     const totalBurgersCounter = document.querySelector('.header__order-counter a');
 
 
-    if (burgersInLocalStorage) {
-        totalBurgersCounter.textContent = burgersInLocalStorage.length;
+
+    if (burgersInLocalStorage !== null) {
+        if (burgersInLocalStorage.length > 0) {
+
+
+            totalBurgersCounter.parentElement.style.display = 'flex';
+
+            totalBurgersCounter.textContent = burgersInLocalStorage.length;
+        } else {
+            totalBurgersCounter.parentElement.style.display = 'none';
+        }
 
 
     } else {
@@ -444,8 +453,24 @@ window.addEventListener("load", () => {
             localStorage.setItem(`burgers`, JSON.stringify(burgersInLocalStorage))
             console.log('success')
 
-            totalBurgersCounter.textContent = burgersInLocalStorage.length;
+            let burgersInLSUpdated = JSON.parse(localStorage.getItem('burgers'));
+            // totalBurgersCounter.textContent = burgersInLSUpdated.length;
+            const counter = document.querySelector('.header__order-counter a');
 
+
+            if (burgersInLSUpdated.length !== 0) {
+                counter.parentElement.style.display = 'flex';
+
+                counter.textContent = burgersInLSUpdated.length;
+
+            } else {
+                burgersInLSUpdated = [];
+
+                counter.parentElement.style.display = 'none';
+            }
+
+        } else {
+            sayCantDoIt("You can't add an empty burger-_-")
         }
 
 

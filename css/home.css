@@ -75,7 +75,6 @@ body {
   font-weight: 400;
   -webkit-user-select: none;
      -moz-user-select: none;
-      -ms-user-select: none;
           user-select: none;
 }
 
@@ -130,6 +129,7 @@ header {
 }
 .header__orders {
   margin: 12px 52px 8px 0px;
+  display: flex;
 }
 .header__orders img {
   width: 43px;
@@ -148,23 +148,21 @@ header {
   background-color: #0c0c0c;
   cursor: pointer;
 }
-.header .header__order-counter {
+.header__order-counter {
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 50%;
+  width: 25px;
+  height: 24px;
+  margin-top: -2px;
+  margin-left: -13px;
   background-color: rgb(254, 184, 54);
-  position: absolute;
-  right: 7%;
-  top: 10%;
 }
-.header .header__order-counter a {
+.header__order-counter a {
   text-align: center;
-  margin-top: 3px;
   font-size: 12px;
   color: white;
-  width: 25px;
-  height: 22px;
 }
 
 /* Main */
@@ -261,7 +259,6 @@ header {
   margin-bottom: 50px;
   -webkit-user-select: none;
      -moz-user-select: none;
-      -ms-user-select: none;
           user-select: none;
 }
 .image-slider__image {

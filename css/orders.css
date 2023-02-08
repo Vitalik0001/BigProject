@@ -150,8 +150,9 @@ header {
   border-radius: 50%;
   background-color: rgb(254, 184, 54);
   position: absolute;
-  right: 7%;
+  right: 26%;
   top: 10%;
+  display: none;
 }
 .header .header__order-counter a {
   text-align: center;
@@ -180,8 +181,8 @@ header {
   border: 3px solid rgb(255, 115, 0);
   box-shadow: 20px 25px 35px rgba(255, 115, 0, 0.5);
   border-radius: 17px;
-  padding: 0px 100px 0px 0px;
   margin: 20px 0px 65px 0px;
+  padding: 20px 50px 20px 0px;
   color: white;
   display: flex;
   align-self: center;
@@ -192,7 +193,7 @@ header {
 }
 .main__total {
   font-size: 25px;
-  margin-bottom: 60px;
+  margin-bottom: 5px;
 }
 .main__total a {
   font-weight: 600;
@@ -209,9 +210,9 @@ header {
 }
 .window__list {
   overflow: auto;
-  max-height: 300px;
-  margin-top: 55px;
+  max-height: 270px;
   padding-right: 20px;
+  margin: 20px 0px 20px 0px;
 }
 .window__list::-webkit-scrollbar {
   width: 10px;
@@ -411,6 +412,12 @@ header {
   margin: 77px 30px;
   display: none;
 }
+.popup__empty-order {
+  font-size: 55px;
+  font-weight: 600;
+  margin: 77px 30px;
+  display: none;
+}
 .popup__button {
   text-align: center;
 }
@@ -488,6 +495,9 @@ input[type=number] {
     height: 370px;
     margin-right: 10px;
   }
+  .popup__empty-order {
+    font-size: 35px;
+  }
 }
 @media (max-width: 710px) {
   .header__logo-img img {
@@ -533,6 +543,40 @@ input[type=number] {
     gap: 40px;
   }
 }
+@media (max-width: 569px) {
+  .main__window {
+    display: flex;
+    flex-wrap: wrap;
+    padding: -50px 0px 20px 0px;
+  }
+  .main__total {
+    margin: 20px 0px 40px 0px;
+  }
+  #burgers-carousel {
+    max-width: 200px;
+    margin-left: 20px;
+  }
+  #burgers-carousel .burger-number {
+    position: absolute;
+    left: 45px;
+  }
+  .window__text {
+    margin: 0 auto;
+  }
+  #popup {
+    z-index: 10000000000;
+  }
+  .list {
+    vertical-align: middle;
+    text-align: center;
+  }
+  .list li {
+    font-size: 15px;
+  }
+  .popup__empty-order {
+    font-size: 23px;
+  }
+}
 @media (max-width: 420px) {
   .header__logo-img img {
     width: 37px;
@@ -573,6 +617,22 @@ input[type=number] {
   .button__main-confirm {
     padding: 14px 30px;
     font-size: 18px;
+  }
+  .popup__empty-order {
+    font-size: 30px;
+  }
+  .burger-ingridient {
+    margin-right: 10px;
+  }
+}
+@media (max-width: 700px) {
+  .delete-burger {
+    margin-bottom: 10px;
+  }
+}
+@media (max-width: 374px) {
+  .burger-ingridient {
+    margin-left: -12px;
   }
 }
 @media (max-width: 420px) {
@@ -628,6 +688,9 @@ input[type=number] {
   }
   .popup__content {
     padding: 20px 30px 25px 30px;
+  }
+  .popup__empty-order {
+    font-size: 25px;
   }
 }
 .main__window {
@@ -690,15 +753,18 @@ input[type=number] {
 }
 
 .burger-number {
-  max-width: 30px;
+  max-width: 40px;
+  text-align: center;
   top: 10px;
   position: absolute;
+  background: rgba(255, 166, 0, 0.58);
   font-size: 20px;
-  left: 10px;
+  left: 80px;
   right: 0;
+  z-index: 1000;
   border-left: none;
   border-top: none;
-  border-radius: 0 0 17px 0;
+  border-radius: 3px;
   margin-right: auto;
 }
 
@@ -720,14 +786,14 @@ input[type=number] {
   position: absolute;
   left: 0;
   right: 0;
-  bottom: 20px;
+  bottom: 10px;
   margin-left: auto;
   margin-right: auto;
   box-sizing: border-box;
   padding: 7px 29px;
   background: none;
   color: white;
-  background-color: rgba(227, 3, 3, 0.65);
+  background-color: rgb(215, 0, 0);
   border-radius: 7px;
   font-size: 18px;
   font-weight: 600;
@@ -736,7 +802,7 @@ input[type=number] {
   transition: all 0.3s ease;
 }
 #burgers-carousel .delete-burger:hover {
-  background-color: rgb(227, 3, 3);
+  background-color: rgb(254, 3, 3);
 }
 #burgers-carousel .delete-burger:active {
   background-color: rgb(176, 0, 0);
@@ -768,4 +834,5 @@ input[type=number] {
   right: 0;
   margin-left: auto;
   margin-right: auto;
+  padding-top: 70px;
 }
