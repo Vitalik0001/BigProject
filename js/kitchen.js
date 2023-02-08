@@ -26,7 +26,7 @@ window.addEventListener("load", () => {
   //check phone direction
   const rotateModal = document.querySelector(".rotate-gif-modal");
   if (screen.height < 520) {
-  burgerMakerKitchen.style.marginTop = "25vh";
+    burgerMakerKitchen.style.marginTop = "25vh";
   }
   if (window.matchMedia("(orientation:portrait)").matches) {
     rotateModal.style.display = "block";
@@ -392,7 +392,9 @@ window.addEventListener("load", () => {
   }
 
   // drag and drop
-  document.querySelectorAll(".kitchen-ingridients").forEach((listOfIngridients) => {
+  document
+    .querySelectorAll(".kitchen-ingridients")
+    .forEach((listOfIngridients) => {
       new Sortable(listOfIngridients, {
         group: {
           name: "shared",
