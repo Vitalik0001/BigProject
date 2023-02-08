@@ -92,7 +92,7 @@ window.addEventListener("load", () => {
       popupTitle.classList.add("hide_title");
       popupThanks.classList.add("show_thanks");
       localStorage.clear();
-      localStorage.setItem('burgers', JSON.stringify([]));
+      localStorage.setItem(`burgers`, JSON.stringify([]));
       setTimeout(() => {
         popup.classList.remove("show_popup");
         body.style.overflow = "";
@@ -142,6 +142,9 @@ window.addEventListener("load", () => {
         ingridient.setAttribute("draggable", false);
       });
     });
+    if (burgersFromLocalStorage == null) {
+      localStorage.removeItem("burgers");
+    }
   }
   function setPrice(number) {
     switch (number) {

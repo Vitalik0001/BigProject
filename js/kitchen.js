@@ -376,7 +376,7 @@ window.addEventListener("load", () => {
   function scrollToIndex(index, draggablesInSlider, slider) {
     slider.scrollTop = draggablesInSlider[index].offsetTop;
   }
-
+  //wtf
   // save burger elems
 
   let burgersInLocalStorage = JSON.parse(localStorage.getItem("burgers"));

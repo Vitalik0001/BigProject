@@ -477,7 +477,6 @@ header {
   justify-content: center;
   align-items: flex-end;
   width: 100%;
-  min-height: 25vh;
 }
 @media (max-width: 550px) {
   .kitchen-burger-holder {
