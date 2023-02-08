@@ -494,9 +494,10 @@ header {
   justify-content: center;
   align-items: flex-end;
 
-  min-width: 50vw;
+  // min-width: 50vw;
+  width: 100%;
 
-  min-height: 25vh;
+  // min-height: 25%;
   @media (max-width: 550px) {
     min-height: 0;
     margin-bottom: 0;
@@ -505,6 +506,7 @@ header {
     margin-top: 0;
     margin-bottom: 0;
   }
+ 
 
   .trash {
     z-index: 100000;

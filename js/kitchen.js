@@ -414,7 +414,7 @@ window.addEventListener("load", () => {
     function scrollToIndex(index, draggablesInSlider, slider) {
         slider.scrollTop = draggablesInSlider[index].offsetTop;
     }
-
+    //wtf
     // save burger elems
 
     let burgersInLocalStorage = JSON.parse(localStorage.getItem('burgers'));
@@ -470,7 +470,7 @@ window.addEventListener("load", () => {
             }
 
         } else {
-            sayCantDoIt("You can't add an empty burger-_-")
+            sayCantDoIt("You can't add an empty burger-_-");
         }
 
 
