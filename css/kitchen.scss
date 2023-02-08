@@ -506,6 +506,7 @@ header {
     margin-top: 0;
     margin-bottom: 0;
   }
+ 
 
   .trash {
     z-index: 100000;
@@ -519,7 +520,7 @@ header {
     bottom: 45px;
     width: 120px;
     height: 220px;
-
+    
     @media (max-height: 450px) {
       width: 75px;
       height: 135px;
@@ -562,8 +563,9 @@ header {
     background-image: url(../img/kitchen/recycle-bin-lid3.png);
     animation: closing-lid 1s;
     z-index: -1;
-
+    
     @media (max-height: 450px) {
+      
       height: 23px;
     }
     @media (max-width: 900px) {
@@ -725,17 +727,18 @@ header {
     cursor: pointer;
     outline: none;
     transition: all 0.3s ease;
-    &:hover {
-      background-color: rgb(227, 3, 3);
-    }
-
-    &:active {
-      background-color: rgb(176, 0, 0);
-      border: 2px solid rgb(176, 0, 0);
-    }
-    @media (max-width: 920px) {
-      padding: 10px 25px;
-    }
+      &:hover {
+        background-color: rgb(227, 3, 3);
+      }
+    
+      &:active {
+        background-color: rgb(176, 0, 0);
+        border: 2px solid rgb(176, 0, 0);
+      }
+      @media (max-width: 920px) {
+        padding: 10px 25px;
+      }
+      
   }
 
   &__main-confirm {
@@ -801,6 +804,7 @@ header {
     @media (max-width: 920px) {
       padding: 10px 10px;
       font-size: 15px;
+      
     }
   }
 }

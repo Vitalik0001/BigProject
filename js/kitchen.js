@@ -25,9 +25,7 @@ window.addEventListener("load", () => {
 
   //check phone direction
   const rotateModal = document.querySelector(".rotate-gif-modal");
-  if (screen.height < 520) {
-    burgerMakerKitchen.style.marginTop = "17vh";
-  }
+  if (screen.height < 520) burgerMakerKitchen.style.marginTop = "17vh";
   if (screen.height < 1200 && screen.height > 520) {
     burgerMakerKitchen.style.marginTop = "-5vh";
   }
@@ -37,9 +35,7 @@ window.addEventListener("load", () => {
     wrapper.style.display = "none";
   }
   function checkOrientation() {
-    if (screen.height < 520) {
-      burgerMakerKitchen.style.marginTop = "25vh";
-    }
+    if (screen.height < 520) burgerMakerKitchen.style.marginTop = "25vh";
     if (!window.matchMedia("(orientation:portrait)").matches) {
       wrapper.style.display = "none";
       rotateModal.style.display = "block";
@@ -186,9 +182,7 @@ window.addEventListener("load", () => {
     popUp.append(saved);
 
     setTimeout(() => {
-      if (popUp.querySelector(".saved")) {
-        popUp.querySelector(".saved").remove();
-      }
+      if (popUp.querySelector(".saved")) popUp.querySelector(".saved").remove();
     }, 3000);
   }
   function sayCantDoIt(text) {
@@ -220,9 +214,8 @@ window.addEventListener("load", () => {
       clearBurger();
 
       setTimeout(() => {
-        if (popUp.querySelector(".added")) {
+        if (popUp.querySelector(".added"))
           popUp.querySelector(".added").remove();
-        }
       }, 3000);
     });
   }
