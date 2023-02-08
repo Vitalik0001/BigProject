@@ -109,26 +109,20 @@ const swiper = new Swiper(".image-slider", {
     },
   },
 });
-let burgersInLocalStorage = JSON.parse(localStorage.getItem('burgers'));
-const totalBurgersCounter = document.querySelector('.header__order-counter a');
-
-
+let burgersInLocalStorage = JSON.parse(localStorage.getItem("burgers"));
+const totalBurgersCounter = document.querySelector(".header__order-counter a");
 
 if (burgersInLocalStorage !== null) {
   if (burgersInLocalStorage.length > 0) {
-
-
-    totalBurgersCounter.parentElement.style.display = 'flex';
+    totalBurgersCounter.parentElement.style.display = "flex";
 
     totalBurgersCounter.textContent = burgersInLocalStorage.length;
   } else {
-    totalBurgersCounter.parentElement.style.display = 'none';
+    totalBurgersCounter.parentElement.style.display = "none";
   }
-
-
 } else {
   burgersInLocalStorage = [];
 
-  totalBurgersCounter.parentElement.style.display = 'none';
+  totalBurgersCounter.parentElement.style.display = "none";
 }
 /* Buttons */

@@ -1,102 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Burger</title>
+    <link rel="stylesheet" href="../css/orders.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Burger</title>
-  <link rel="stylesheet" href="../css/orders.css" />
-</head>
-
-<body>
-  <div class="wrapper">
-    <header>
-      <div class="header">
-        <div class="header__container">
-          <div class="header__logo-img">
-            <a href="./kitchen.html"><img src="../img/burger.png" alt="Logo" /></a>
-          </div>
-
-          <div class="header__text">
-            <a href="./home.html">Burger</a>
-          </div>
-
-          <div class="header__orders">
-            <div class="header__order-counter"><a></a></div>
-            <form action="../html/orders.html">
-              <button class="header__button-orders">
-                <image src="../img/shopping-bag.png"></image>
-              </button>
-            </form>
-          </div>
-        </div>
-      </div>
-    </header>
-    <main>
-      <div class="main__container">
-        <div class="main__content">
-          <div class="main__title">
-            <a>Your order</a>
-          </div>
-          <div class="main__window">
-            <div id="burgers-carousel" class="window__img">
-              <div class="burger-number"></div>
-              <div class="delete-burger">Delete</div>
-              <div class="arrow-previous"></div>
-              <div class="arrow-next"></div>
+  <body>
+    <div class="wrapper">
+      <header>
+        <div class="header">
+          <div class="header__container">
+            <div class="header__logo-img">
+              <a href="./kitchen.html"
+                ><img src="../img/burger.png" alt="Logo"
+              /></a>
             </div>
-            <div class="window__text">
-              <ul class="window__list list"></ul>
-              <div class="main__total"></div>
+
+            <div class="header__text">
+              <a href="./home.html">Burger</a>
             </div>
-          </div>
-          <div class="main__buttons button">
-            <form action="../html/kitchen.html">
-              <button class="button__main-return"><a>Return</a></button>
-            </form>
 
-            <form>
-              <button class="button__main-confirm"><a>Confirm</a></button>
-            </form>
-          </div>
-        </div>
-
-        <div id="popup" class="popup">
-          <div class="popup__body">
-            <div class="popup__content">
-              <div class="popup__close"><a>X</a></div>
-              <div class="popup__title">
-                <form>
-                  <p>Delivery form</p>
-                  <input type="email" name="email" class="popup__input" placeholder="Write your email..." />
-                  <br />
-                  <input type="number" name="number" id="phone_number" class="popup__input"
-                    placeholder="Write your phone number..." />
-                  <br />
-                  <input type="text" name="text" class="popup__input" placeholder="Write your address..." />
-                  <br />
-                  <div class="popup__button">
-                    <button>Confirm</button>
-                  </div>
-                </form>
-              </div>
-              <div class="popup__thanks">
-                <p>Thanks for your order !</p>
-                <a></a>
-              </div>
-              <div class="popup__empty-order">
-                <p>Please, check your order</p>
-                <a></a>
-              </div>
+            <div class="header__orders">
+              <div class="header__order-counter"><a></a></div>
+              <form action="../html/orders.html">
+                <button class="header__button-orders">
+                  <image src="../img/shopping-bag.png"></image>
+                </button>
+              </form>
             </div>
           </div>
         </div>
-      </div>
-    </main>
-    <footer></footer>
-  </div>
-  <script src="../js/orders.js"></script>
-</body>
+      </header>
+      <main>
+        <div class="main__container">
+          <div class="main__content">
+            <div class="main__title">
+              <a>Your order</a>
+            </div>
+            <div class="main__window">
+              <div id="burgers-carousel" class="window__img">
+                <div class="burger-number"></div>
+                <div class="delete-burger">Delete</div>
+                <div class="arrow-previous"></div>
+                <div class="arrow-next"></div>
+              </div>
+              <div class="window__text">
+                <ul class="window__list list"></ul>
+                <div class="main__total"></div>
+              </div>
+            </div>
+            <div class="main__buttons button">
+              <form action="../html/kitchen.html">
+                <button class="button__main-return"><a>Return</a></button>
+              </form>
 
+              <form>
+                <button class="button__main-confirm"><a>Confirm</a></button>
+              </form>
+            </div>
+          </div>
+
+          <div id="popup" class="popup">
+            <div class="popup__body">
+              <div class="popup__content">
+                <div class="popup__close"><a>X</a></div>
+                <div class="popup__title">
+                  <form>
+                    <p>Delivery form</p>
+                    <input
+                      type="email"
+                      name="email"
+                      class="popup__input"
+                      placeholder="Write your email..."
+                    />
+                    <br />
+                    <input
+                      type="number"
+                      name="number"
+                      id="phone_number"
+                      class="popup__input"
+                      placeholder="Write your phone number..."
+                    />
+                    <br />
+                    <input
+                      type="text"
+                      name="text"
+                      class="popup__input"
+                      placeholder="Write your address..."
+                    />
+                    <br />
+                    <div class="popup__button">
+                      <button>Confirm</button>
+                    </div>
+                  </form>
+                </div>
+                <div class="popup__thanks">
+                  <p>Thanks for your order !</p>
+                  <a></a>
+                </div>
+                <div class="popup__empty-order">
+                  <p>Please, check your order</p>
+                  <a></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+      <footer></footer>
+    </div>
+    <script src="../js/orders.js"></script>
+  </body>
 </html>

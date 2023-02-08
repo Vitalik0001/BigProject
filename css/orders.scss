@@ -84,7 +84,6 @@ body {
 
 .main {
   flex: 1 1 auto;
-  
 }
 
 [class*="__container"] {
@@ -709,7 +708,7 @@ input[type="number"] {
 @media (max-width: 374px) {
   .burger-ingridient {
     margin-left: -12px;
-  } 
+  }
 }
 
 @media (max-width: 420px) {
@@ -796,7 +795,6 @@ input[type="number"] {
 
 .main__window {
   height: auto;
-  
 }
 
 //burger
@@ -916,7 +914,6 @@ input[type="number"] {
   display: flex;
   flex-direction: column;
   width: 40%;
-
   height: auto;
   background-color: rgba(204, 204, 204, 0);
   margin: auto auto 70px auto;
@@ -924,15 +921,12 @@ input[type="number"] {
   right: 0;
   margin-left: auto;
   margin-right: auto;
-
   display: none;
-
   .burger-ingridient {
     max-width: 100%;
     min-width: 130px;
     max-height: 100px;
     margin-top: -80px;
-    
   }
 }
 

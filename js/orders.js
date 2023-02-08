@@ -25,7 +25,6 @@ window.addEventListener("load", () => {
     });
   }
 
-
   /* Close first window */
 
   function popupTitleClose() {
@@ -92,6 +91,7 @@ window.addEventListener("load", () => {
     if (!isEmpty) {
       popupTitle.classList.add("hide_title");
       popupThanks.classList.add("show_thanks");
+      localStorage.setItem(`burgers`, JSON.stringify([]));
       localStorage.clear();
       setTimeout(() => {
         popup.classList.remove("show_popup");
@@ -142,9 +142,6 @@ window.addEventListener("load", () => {
         ingridient.setAttribute("draggable", false);
       });
     });
-    if (burgersFromLocalStorage == null) {
-      localStorage.removeItem('burgers');
-    }
   }
   function setPrice(number) {
     switch (number) {
@@ -215,7 +212,7 @@ window.addEventListener("load", () => {
     const totalSum = document.querySelector(".main__total");
     const textOrderEmpty = document.querySelector(".window__text");
     const mainWindow = document.querySelector(".main__window");
-    const burgersCarousel = document.getElementById('burgers-carousel');
+    const burgersCarousel = document.getElementById("burgers-carousel");
 
     windowListOrder.innerHTML = "";
     totalSum.innerHTML = "";
@@ -232,9 +229,9 @@ window.addEventListener("load", () => {
         li.innerHTML = `Burger #${counter} - ${priceOfBurger}$`;
         windowListOrder.append(li);
       });
-      burgersCarousel.style = 'overflow: visibility; opacity: 1;';
+      burgersCarousel.style = "overflow: visibility; opacity: 1;";
       let totalSumOrder = document.createElement("a");
-      mainTotal.style = 'overflow: visibility; opacity: 1;';
+      mainTotal.style = "overflow: visibility; opacity: 1;";
       let totalPrice = 0;
       burgersFromLocalStorage.forEach((burger) => {
         burger.forEach((ingridient) => {
@@ -246,17 +243,17 @@ window.addEventListener("load", () => {
       showPopup();
     } else {
       const aFirstTag = document.createElement("a");
-      textOrderEmpty.style = 'align-self: center';
-      mainWindow.style = 'padding-left: 55px;';
+      textOrderEmpty.style = "align-self: center";
+      mainWindow.style = "padding-left: 55px;";
       aFirstTag.innerHTML = "There is nothing to order :(";
       windowListOrder.append(aFirstTag);
-      mainTotal.style = 'overflow: hidden; opacity: 0;';
+      mainTotal.style = "overflow: hidden; opacity: 0;";
       const aSecondTag = document.createElement("a");
       aSecondTag.innerHTML =
         '* Before ordering, create your burger in the "kitchen" section *';
       windowListOrder.append(aSecondTag);
       let timer;
-      burgersCarousel.style = 'display: none';
+      burgersCarousel.style = "display: none";
       buttonConfirm.addEventListener("click", (e) => {
         e.preventDefault();
         clearTimeout(timer);
@@ -358,5 +355,3 @@ window.addEventListener("load", () => {
     localStorage.setItem("burgers", JSON.stringify(burgersToLocalStorage));
   }
 });
-
-

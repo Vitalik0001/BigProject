@@ -191,7 +191,6 @@ header {
   border-radius: 17px;
   -webkit-user-select: none;
      -moz-user-select: none;
-      -ms-user-select: none;
           user-select: none;
 }
 .delete-modal__close {
@@ -271,7 +270,6 @@ header {
   border-radius: 17px;
   -webkit-user-select: none;
      -moz-user-select: none;
-      -ms-user-select: none;
           user-select: none;
 }
 .instructions__close {
@@ -478,7 +476,7 @@ header {
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  min-width: 50vw;
+  width: 100%;
   min-height: 25vh;
 }
 @media (max-width: 550px) {
@@ -523,8 +521,7 @@ header {
   }
 }
 .kitchen-burger-holder .trash:active .trash-lid {
-  -webkit-animation: opening-lid-active 0.4s forwards !important;
-          animation: opening-lid-active 0.4s forwards !important;
+  animation: opening-lid-active 0.4s forwards !important;
 }
 .kitchen-burger-holder .trash .space-for-lid {
   position: relative;
@@ -544,8 +541,7 @@ header {
   width: 100%;
   height: 36px;
   background-image: url(../img/kitchen/recycle-bin-lid3.png);
-  -webkit-animation: closing-lid 1s;
-          animation: closing-lid 1s;
+  animation: closing-lid 1s;
   z-index: -1;
 }
 @media (max-height: 450px) {
@@ -568,17 +564,6 @@ header {
   background-image: url(../img/kitchen/recycle-bin-can.png);
 }
 
-@-webkit-keyframes opening-lid {
-  0% {
-    transform: rotate(0deg);
-    bottom: -1px;
-  }
-  100% {
-    transform: rotate(360deg);
-    bottom: 50px;
-  }
-}
-
 @keyframes opening-lid {
   0% {
     transform: rotate(0deg);
@@ -586,16 +571,6 @@ header {
   }
   100% {
     transform: rotate(360deg);
-    bottom: 50px;
-  }
-}
-@-webkit-keyframes opening-lid-backwords {
-  0% {
-    transform: rotate(0deg);
-    bottom: -1px;
-  }
-  100% {
-    transform: rotate(-360deg);
     bottom: 50px;
   }
 }
@@ -609,15 +584,6 @@ header {
     bottom: 50px;
   }
 }
-@-webkit-keyframes opening-lid-active {
-  0% {
-    transform: rotate(0deg);
-    bottom: -1px;
-  }
-  100% {
-    bottom: 50px;
-  }
-}
 @keyframes opening-lid-active {
   0% {
     transform: rotate(0deg);
@@ -625,16 +591,6 @@ header {
   }
   100% {
     bottom: 50px;
-  }
-}
-@-webkit-keyframes closing-lid {
-  0% {
-    transform: rotate(0deg);
-    bottom: 50px;
-  }
-  100% {
-    transform: rotate(0deg);
-    bottom: -1px;
   }
 }
 @keyframes closing-lid {
@@ -648,23 +604,19 @@ header {
   }
 }
 .trash-open {
-  -webkit-animation: opening-lid 0.7s forwards !important;
-          animation: opening-lid 0.7s forwards !important;
+  animation: opening-lid 0.7s forwards !important;
 }
 
 .trash-open2 {
-  -webkit-animation: opening-lid-active 0.7s forwards !important;
-          animation: opening-lid-active 0.7s forwards !important;
+  animation: opening-lid-active 0.7s forwards !important;
 }
 
 .trash-open3 {
-  -webkit-animation: opening-lid-backwords 0.7s forwards !important;
-          animation: opening-lid-backwords 0.7s forwards !important;
+  animation: opening-lid-backwords 0.7s forwards !important;
 }
 
 .trash-closed {
-  -webkit-animation: closing-lid 1s !important;
-          animation: closing-lid 1s !important;
+  animation: closing-lid 1s !important;
 }
 
 .burger {
@@ -689,8 +641,7 @@ header {
   position: relative;
   margin: 0 auto;
   margin-top: -9%;
-  -webkit-user-select: none; /* Safari */
-  -ms-user-select: none; /* IE 10 and IE 11 */
+  -webkit-user-select: none; /* Safari */ /* IE 10 and IE 11 */
   -moz-user-select: none;
        user-select: none; /* Standard syntax */
   width: 60%;
@@ -856,8 +807,7 @@ header {
   font-weight: 600;
   outline: none;
   transition: all 0.3s ease;
-  -webkit-user-select: none; /* Safari */
-  -ms-user-select: none; /* IE 10 and IE 11 */
+  -webkit-user-select: none; /* Safari */ /* IE 10 and IE 11 */
   -moz-user-select: none;
        user-select: none; /* Standard syntax */
 }
@@ -871,8 +821,7 @@ header {
   font-weight: 600;
   outline: none;
   transition: all 0.3s ease;
-  -webkit-user-select: none; /* Safari */
-  -ms-user-select: none; /* IE 10 and IE 11 */
+  -webkit-user-select: none; /* Safari */ /* IE 10 and IE 11 */
   -moz-user-select: none;
        user-select: none; /* Standard syntax */
 }
@@ -886,8 +835,7 @@ header {
   font-weight: 600;
   outline: none;
   transition: all 0.3s ease;
-  -webkit-user-select: none; /* Safari */
-  -ms-user-select: none; /* IE 10 and IE 11 */
+  -webkit-user-select: none; /* Safari */ /* IE 10 and IE 11 */
   -moz-user-select: none;
        user-select: none; /* Standard syntax */
 }
@@ -901,8 +849,7 @@ header {
   font-weight: 600;
   outline: none;
   transition: all 0.3s ease;
-  -webkit-user-select: none; /* Safari */
-  -ms-user-select: none; /* IE 10 and IE 11 */
+  -webkit-user-select: none; /* Safari */ /* IE 10 and IE 11 */
   -moz-user-select: none;
        user-select: none; /* Standard syntax */
 }
