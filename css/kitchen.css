@@ -191,6 +191,7 @@ header {
   border-radius: 17px;
   -webkit-user-select: none;
      -moz-user-select: none;
+      -ms-user-select: none;
           user-select: none;
 }
 .delete-modal__close {
@@ -270,6 +271,7 @@ header {
   border-radius: 17px;
   -webkit-user-select: none;
      -moz-user-select: none;
+      -ms-user-select: none;
           user-select: none;
 }
 .instructions__close {
@@ -476,7 +478,7 @@ header {
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  width: 100%;
+  min-width: 50vw;
   min-height: 25vh;
 }
 @media (max-width: 550px) {
@@ -508,14 +510,21 @@ header {
   background-repeat: no-repeat;
   cursor: pointer;
 }
-@media (max-width: 700px) {
+@media (max-height: 450px) {
+  .kitchen-burger-holder .trash {
+    width: 75px;
+    height: 135px;
+  }
+}
+@media (max-width: 900px) {
   .kitchen-burger-holder .trash {
     width: 90px;
     height: 165px;
   }
 }
 .kitchen-burger-holder .trash:active .trash-lid {
-  animation: opening-lid-active 0.4s forwards !important;
+  -webkit-animation: opening-lid-active 0.4s forwards !important;
+          animation: opening-lid-active 0.4s forwards !important;
 }
 .kitchen-burger-holder .trash .space-for-lid {
   position: relative;
@@ -535,10 +544,16 @@ header {
   width: 100%;
   height: 36px;
   background-image: url(../img/kitchen/recycle-bin-lid3.png);
-  animation: closing-lid 1s;
+  -webkit-animation: closing-lid 1s;
+          animation: closing-lid 1s;
   z-index: -1;
 }
-@media (max-width: 700px) {
+@media (max-height: 450px) {
+  .kitchen-burger-holder .trash-lid {
+    height: 23px;
+  }
+}
+@media (max-width: 900px) {
   .kitchen-burger-holder .trash-lid {
     height: 27px;
   }
@@ -553,6 +568,17 @@ header {
   background-image: url(../img/kitchen/recycle-bin-can.png);
 }
 
+@-webkit-keyframes opening-lid {
+  0% {
+    transform: rotate(0deg);
+    bottom: -1px;
+  }
+  100% {
+    transform: rotate(360deg);
+    bottom: 50px;
+  }
+}
+
 @keyframes opening-lid {
   0% {
     transform: rotate(0deg);
@@ -560,6 +586,16 @@ header {
   }
   100% {
     transform: rotate(360deg);
+    bottom: 50px;
+  }
+}
+@-webkit-keyframes opening-lid-backwords {
+  0% {
+    transform: rotate(0deg);
+    bottom: -1px;
+  }
+  100% {
+    transform: rotate(-360deg);
     bottom: 50px;
   }
 }
@@ -573,6 +609,15 @@ header {
     bottom: 50px;
   }
 }
+@-webkit-keyframes opening-lid-active {
+  0% {
+    transform: rotate(0deg);
+    bottom: -1px;
+  }
+  100% {
+    bottom: 50px;
+  }
+}
 @keyframes opening-lid-active {
   0% {
     transform: rotate(0deg);
@@ -580,6 +625,16 @@ header {
   }
   100% {
     bottom: 50px;
+  }
+}
+@-webkit-keyframes closing-lid {
+  0% {
+    transform: rotate(0deg);
+    bottom: 50px;
+  }
+  100% {
+    transform: rotate(0deg);
+    bottom: -1px;
   }
 }
 @keyframes closing-lid {
@@ -593,19 +648,23 @@ header {
   }
 }
 .trash-open {
-  animation: opening-lid 0.7s forwards !important;
+  -webkit-animation: opening-lid 0.7s forwards !important;
+          animation: opening-lid 0.7s forwards !important;
 }
 
 .trash-open2 {
-  animation: opening-lid-active 0.7s forwards !important;
+  -webkit-animation: opening-lid-active 0.7s forwards !important;
+          animation: opening-lid-active 0.7s forwards !important;
 }
 
 .trash-open3 {
-  animation: opening-lid-backwords 0.7s forwards !important;
+  -webkit-animation: opening-lid-backwords 0.7s forwards !important;
+          animation: opening-lid-backwords 0.7s forwards !important;
 }
 
 .trash-closed {
-  animation: closing-lid 1s !important;
+  -webkit-animation: closing-lid 1s !important;
+          animation: closing-lid 1s !important;
 }
 
 .burger {
@@ -630,7 +689,8 @@ header {
   position: relative;
   margin: 0 auto;
   margin-top: -9%;
-  -webkit-user-select: none; /* Safari */ /* IE 10 and IE 11 */
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
   -moz-user-select: none;
        user-select: none; /* Standard syntax */
   width: 60%;
@@ -675,6 +735,11 @@ header {
   margin: 50px 0;
   transition: 0.3s;
 }
+@media (max-width: 900px) {
+  .button {
+    padding: 0;
+  }
+}
 @media (max-height: 600px) {
   .button {
     margin-top: 10px;
@@ -700,6 +765,11 @@ header {
   background-color: rgb(176, 0, 0);
   border: 2px solid rgb(176, 0, 0);
 }
+@media (max-width: 920px) {
+  .button__main-clear {
+    padding: 10px 25px;
+  }
+}
 .button__main-confirm {
   padding: 15px 40px;
   background-color: rgb(73, 195, 11);
@@ -716,6 +786,11 @@ header {
 }
 .button__main-confirm:active {
   background-color: rgb(60, 154, 14);
+}
+@media (max-width: 920px) {
+  .button__main-confirm {
+    padding: 10px 25px;
+  }
 }
 .button__main-edit {
   background: none;
@@ -735,6 +810,11 @@ header {
 .button__main-edit:active {
   background-color: rgba(249, 249, 36, 0.661);
 }
+@media (max-width: 920px) {
+  .button__main-edit {
+    padding: 10px 25px;
+  }
+}
 .button .button__main-submit {
   padding: 15px 20px;
   background-color: rgb(73, 195, 11);
@@ -751,6 +831,12 @@ header {
 }
 .button .button__main-submit:active {
   background-color: rgb(60, 154, 14);
+}
+@media (max-width: 920px) {
+  .button .button__main-submit {
+    padding: 10px 10px;
+    font-size: 15px;
+  }
 }
 
 .popup {
@@ -770,7 +856,8 @@ header {
   font-weight: 600;
   outline: none;
   transition: all 0.3s ease;
-  -webkit-user-select: none; /* Safari */ /* IE 10 and IE 11 */
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
   -moz-user-select: none;
        user-select: none; /* Standard syntax */
 }
@@ -784,7 +871,8 @@ header {
   font-weight: 600;
   outline: none;
   transition: all 0.3s ease;
-  -webkit-user-select: none; /* Safari */ /* IE 10 and IE 11 */
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
   -moz-user-select: none;
        user-select: none; /* Standard syntax */
 }
@@ -798,7 +886,8 @@ header {
   font-weight: 600;
   outline: none;
   transition: all 0.3s ease;
-  -webkit-user-select: none; /* Safari */ /* IE 10 and IE 11 */
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
   -moz-user-select: none;
        user-select: none; /* Standard syntax */
 }
@@ -812,7 +901,8 @@ header {
   font-weight: 600;
   outline: none;
   transition: all 0.3s ease;
-  -webkit-user-select: none; /* Safari */ /* IE 10 and IE 11 */
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
   -moz-user-select: none;
        user-select: none; /* Standard syntax */
 }

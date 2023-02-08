@@ -494,7 +494,7 @@ header {
   justify-content: center;
   align-items: flex-end;
 
-  width: 100%;
+  min-width: 50vw;
 
   min-height: 25vh;
   @media (max-width: 550px) {
@@ -518,7 +518,12 @@ header {
     bottom: 45px;
     width: 120px;
     height: 220px;
-    @media (max-width: 700px) {
+    
+    @media (max-height: 450px) {
+      width: 75px;
+      height: 135px;
+    }
+    @media (max-width: 900px) {
       width: 90px;
       height: 165px;
     }
@@ -556,7 +561,12 @@ header {
     background-image: url(../img/kitchen/recycle-bin-lid3.png);
     animation: closing-lid 1s;
     z-index: -1;
-    @media (max-width: 700px) {
+    
+    @media (max-height: 450px) {
+      
+      height: 23px;
+    }
+    @media (max-width: 900px) {
       height: 27px;
     }
   }
@@ -697,6 +707,9 @@ header {
   justify-content: space-around;
   margin: 50px 0;
   transition: 0.3s;
+  @media (max-width: 900px) {
+    padding: 0;
+  }
   @media (max-height: 600px) {
     margin-top: 10px;
   }
@@ -712,14 +725,18 @@ header {
     cursor: pointer;
     outline: none;
     transition: all 0.3s ease;
-    &:hover {
-      background-color: rgb(227, 3, 3);
-    }
-
-    &:active {
-      background-color: rgb(176, 0, 0);
-      border: 2px solid rgb(176, 0, 0);
-    }
+      &:hover {
+        background-color: rgb(227, 3, 3);
+      }
+    
+      &:active {
+        background-color: rgb(176, 0, 0);
+        border: 2px solid rgb(176, 0, 0);
+      }
+      @media (max-width: 920px) {
+        padding: 10px 25px;
+      }
+      
   }
 
   &__main-confirm {
@@ -738,6 +755,9 @@ header {
 
     &:active {
       background-color: rgb(60, 154, 14);
+    }
+    @media (max-width: 920px) {
+      padding: 10px 25px;
     }
   }
   &__main-edit {
@@ -758,6 +778,9 @@ header {
     &:active {
       background-color: rgba(249, 249, 36, 0.661);
     }
+    @media (max-width: 920px) {
+      padding: 10px 25px;
+    }
   }
   .button__main-submit {
     padding: 15px 20px;
@@ -775,6 +798,11 @@ header {
 
     &:active {
       background-color: rgb(60, 154, 14);
+    }
+    @media (max-width: 920px) {
+      padding: 10px 10px;
+      font-size: 15px;
+      
     }
   }
 }
@@ -867,4 +895,3 @@ header {
     margin: auto;
   }
 }
-

@@ -142,6 +142,9 @@ window.addEventListener("load", () => {
         ingridient.setAttribute("draggable", false);
       });
     });
+    if (burgersFromLocalStorage == null) {
+      localStorage.removeItem('burgers');
+    }
   }
   function setPrice(number) {
     switch (number) {
