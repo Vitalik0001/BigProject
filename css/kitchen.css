@@ -478,7 +478,7 @@ header {
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  width: 100%;
+  min-width: 50vw;
   min-height: 25vh;
 }
 @media (max-width: 550px) {
@@ -724,6 +724,11 @@ header {
   margin: 50px 0;
   transition: 0.3s;
 }
+@media (max-width: 900px) {
+  .button {
+    padding: 0;
+  }
+}
 @media (max-height: 600px) {
   .button {
     margin-top: 10px;
@@ -749,6 +754,11 @@ header {
   background-color: rgb(176, 0, 0);
   border: 2px solid rgb(176, 0, 0);
 }
+@media (max-width: 920px) {
+  .button__main-clear {
+    padding: 10px 25px;
+  }
+}
 .button__main-confirm {
   padding: 15px 40px;
   background-color: rgb(73, 195, 11);
@@ -765,6 +775,11 @@ header {
 }
 .button__main-confirm:active {
   background-color: rgb(60, 154, 14);
+}
+@media (max-width: 920px) {
+  .button__main-confirm {
+    padding: 10px 25px;
+  }
 }
 .button__main-edit {
   background: none;
@@ -784,6 +799,11 @@ header {
 .button__main-edit:active {
   background-color: rgba(249, 249, 36, 0.661);
 }
+@media (max-width: 920px) {
+  .button__main-edit {
+    padding: 10px 25px;
+  }
+}
 .button .button__main-submit {
   padding: 15px 20px;
   background-color: rgb(73, 195, 11);
@@ -800,6 +820,12 @@ header {
 }
 .button .button__main-submit:active {
   background-color: rgb(60, 154, 14);
+}
+@media (max-width: 920px) {
+  .button .button__main-submit {
+    padding: 10px 10px;
+    font-size: 15px;
+  }
 }
 
 .popup {
