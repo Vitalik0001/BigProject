@@ -113,7 +113,7 @@ const burgersFromLocalStorage = JSON.parse(localStorage.getItem('burgers'));
 const totalBurgersCounter = document.querySelector('.header__order-counter a');
 if (burgersFromLocalStorage === null) {
 
-  totalBurgersCounter.textContent = '0';
+  totalBurgersCounter.remove();
 } else {
   totalBurgersCounter.textContent = burgersFromLocalStorage.length;
 }

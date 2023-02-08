@@ -57,6 +57,14 @@ window.addEventListener("load", () => {
     window.addEventListener("orientationchange", checkOrientation);
 
     //instructions
+    let isInstructed = JSON.parse(localStorage.getItem('isInstructed'));
+    console.log(isInstructed)
+    if (isInstructed != true) {
+        showInstructionsModal();
+        localStorage.setItem('isInstructed', JSON.stringify(true));
+    } else {
+        closeInstructionsModalAtAll();
+    }
     function showInstructionsModal() {
         instructionsButtonOk.addEventListener('click', (e) => {
             e.preventDefault();
@@ -68,7 +76,7 @@ window.addEventListener("load", () => {
         closeInstructionsModalOutside();
 
     }
-    showInstructionsModal();
+
     /* Close modal window */
     function closeInstructionsModalAtAll() {
         instructionsModal.remove();
@@ -175,6 +183,36 @@ window.addEventListener("load", () => {
 
 
     }
+    function setToEdit() {
+
+
+
+        allowedToDrag = false
+
+        clearButton.innerHTML = 'Delete';
+
+        saveButton.innerHTML = 'Edit';
+        isSaved = true;
+
+        burger.querySelectorAll('.draggable').forEach(ingridient => {
+            ingridient.style.marginTop = '-20%';
+
+        })
+        let saved = document.createElement('div')
+        saved.classList.add('saved');
+        saved.innerHTML = 'Previewing';
+        popUp.innerHTML = '';
+        popUp.append(saved);
+
+        setTimeout(() => {
+            if (popUp.querySelector('.saved'))
+                popUp.querySelector('.saved').remove();
+        }, 3000);
+
+
+
+
+    }
     function sayCantDoIt(text) {
         let sayCantDoIt = document.createElement('div');
         sayCantDoIt.classList.add('cant-do-it');
@@ -224,36 +262,7 @@ window.addEventListener("load", () => {
             draggable.style.cursor = 'move';
         })
     }
-    function setToEdit() {
 
-
-
-        allowedToDrag = false
-
-        clearButton.innerHTML = 'Delete';
-
-        saveButton.innerHTML = 'Edit';
-        isSaved = true;
-
-        burger.querySelectorAll('.draggable').forEach(ingridient => {
-            ingridient.style.marginTop = '-20%';
-
-        })
-        let saved = document.createElement('div')
-        saved.classList.add('saved');
-        saved.innerHTML = 'Previewing';
-        popUp.innerHTML = '';
-        popUp.append(saved);
-
-        setTimeout(() => {
-            if (popUp.querySelector('.saved'))
-                popUp.querySelector('.saved').remove();
-        }, 3000);
-
-
-
-
-    }
     let allowedToDrag = true;
     saveButton.addEventListener('click', (e) => {
         e.preventDefault();
@@ -407,27 +416,33 @@ window.addEventListener("load", () => {
     const totalBurgersCounter = document.querySelector('.header__order-counter a');
 
 
-    if (burgersInLocalStorage === null) {
-        burgersInLocalStorage = [];
-        totalBurgersCounter.textContent = '0';
-    } else {
+    if (burgersInLocalStorage) {
         totalBurgersCounter.textContent = burgersInLocalStorage.length;
+
+
+    } else {
+        burgersInLocalStorage = [];
+        console.log(burgersInLocalStorage)
+        totalBurgersCounter.remove();
     }
 
 
     function saveBurger() {
         const draggablesInBurger = burger.querySelectorAll('img.draggable');
+        if (draggablesInBurger.length > 0) {
+            const burgerIngridientsArray = [];
+            draggablesInBurger.forEach((draggable) => {
+                const url = new URL(draggable.src)
+                burgerIngridientsArray.push(url.pathname);
+            })
+            burgersInLocalStorage.push(burgerIngridientsArray);
+            localStorage.setItem(`burgers`, JSON.stringify(burgersInLocalStorage))
+            console.log('success')
 
-        const burgerIngridientsArray = [];
-        draggablesInBurger.forEach((draggable) => {
-            const url = new URL(draggable.src)
-            burgerIngridientsArray.push(url.pathname);
-        })
-        burgersInLocalStorage.push(burgerIngridientsArray);
-        localStorage.setItem(`burgers`, JSON.stringify(burgersInLocalStorage))
-        console.log('success')
+            totalBurgersCounter.textContent = burgersInLocalStorage.length;
 
-        totalBurgersCounter.textContent = burgersInLocalStorage.length;
+        }
+
 
     }
 
@@ -472,7 +487,8 @@ window.addEventListener("load", () => {
     new Sortable(trash, {
         group: {
             name: 'shared',
-            put: true // Do not allow items to be put into this list
+            put: true, // Do not allow items to be put into this list
+            pull: false
         },
         dragClass: 'dragging',
         animation: 150,

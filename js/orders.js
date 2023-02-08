@@ -92,9 +92,11 @@ window.addEventListener('load', () => {
     if (!isEmpty) {
       popupTitle.classList.add("hide_title");
       popupThanks.classList.add("show_thanks");
+      localStorage.clear();
       setTimeout(() => {
         popup.classList.remove("show_popup");
         body.style.overflow = "";
+        location.reload();
       }, 4000);
     }
   }
@@ -102,31 +104,38 @@ window.addEventListener('load', () => {
 
 
   function loadIntoBurgerSlider() {
-    const burgersFromLocalStorage = JSON.parse(localStorage.getItem('burgers'));
+    const burgersCarousel = document.querySelector('#burgers-carousel');
+    let burgersFromLocalStorage = JSON.parse(localStorage.getItem('burgers'));
     const totalBurgersCounter = document.querySelector('.header__order-counter a');
-    if (burgersFromLocalStorage === null) {
-
-      totalBurgersCounter.textContent = '0';
-    } else {
+    if (burgersFromLocalStorage) {
       totalBurgersCounter.textContent = burgersFromLocalStorage.length;
+
+
+    } else {
+      burgersFromLocalStorage = [];
+
+
+      totalBurgersCounter.remove();
+      localStorage.removeItem('burgers');
     }
 
-    const burgersCarousel = document.querySelector('#burgers-carousel');
+
 
 
     let burgersCarouselInside = '';
+    if (burgersFromLocalStorage) {
+      burgersFromLocalStorage.forEach(burger => {
+        let burgerInside = '';
+        burger.forEach(ingridientUrl => {
 
-    burgersFromLocalStorage.forEach(burger => {
-      let burgerInside = '';
-      burger.forEach(ingridientUrl => {
-
-        burgerInside += `<img class="burger-ingridient" src="${ingridientUrl}">`
+          burgerInside += `<img class="burger-ingridient" src="${ingridientUrl}">`
 
 
+        });
+        burgersCarouselInside += `<div class="burger">${burgerInside}</div>`;
       });
-      burgersCarouselInside += `<div class="burger">${burgerInside}</div>`;
-    });
-    burgersCarousel.innerHTML = burgersCarouselInside;
+    }
+    burgersCarousel.innerHTML += burgersCarouselInside;
 
     const burgersInside = document.querySelectorAll('.burger');
 
@@ -137,34 +146,108 @@ window.addEventListener('load', () => {
       ingridientsInBurger.forEach((ingridient, i) => {
         ingridient.style.position = 'relative';
         ingridient.style.zIndex = zIndices[i];
+        ingridient.setAttribute('draggable', false);
 
       })
     })
 
   }
+  function setPrice(number) {
+    switch (number) {
+      case 1:
+        return 1;
+      case 2:
+        return 1;
+      case 3:
+        return 1;
+      case 4:
+        return 1;
+      case 25:
+        return 1;
+      case 6:
+        return 1;
+      case 7:
+        return 1;
+      case 8:
+        return 1;
+      case 9:
+        return 1;
+      case 10:
+        return 2;
+      case 11:
+        return 2;
+      case 12:
+        return 3;
+      case 13:
+        return 1;
+      case 14:
+        return 2;
+      case 15:
+        return 1;
+      case 16:
+        return 4;
+      case 17:
+        return 1;
+      case 18:
+        return 2;
+      case 19:
+        return 1;
+      case 20:
+        return 4;
+      case 21:
+        return 2;
+      case 22:
+        return 1;
+      case 23:
+        return 3;
+      case 24:
+        return 1;
+      default:
+        return;
+    }
+  }
+  function extractNumberFromString(string) {
+    var result = string.match(/\d+/g);
+    if (result) {
+      return result.join("");
+    }
+    return "";
+  }
+
+
 
   function sumOrder() {
     const burgersFromLocalStorage = JSON.parse(localStorage.getItem('burgers'));
     const windowListOrder = document.querySelector(".window__list");
+
     const totalSum = document.querySelector('.main__total');
 
 
+    windowListOrder.innerHTML = '';
+    totalSum.innerHTML = '';
     let counter = 0;
 
-    if (burgersFromLocalStorage.length > 0) {
+    if (burgersFromLocalStorage && burgersFromLocalStorage.length > 0) {
       burgersFromLocalStorage.forEach(burger => {
         counter++;
+        let priceOfBurger = 0;
         let li = document.createElement('li');
-        li.innerHTML = `Burger #${counter} - ${burger.length}$`;
+        burger.forEach(ingridient => {
+          priceOfBurger += setPrice(+extractNumberFromString(ingridient));
+        })
+        li.innerHTML = `Burger #${counter} - ${priceOfBurger}$`;
         windowListOrder.append(li);
       })
-
-
 
       let totalSumOrder = document.createElement('a');
       let totalPrice = 0;
       burgersFromLocalStorage.forEach(burger => {
-        totalPrice += burger.length;
+        burger.forEach(ingridient => {
+
+          totalPrice += setPrice(+extractNumberFromString(ingridient));
+
+        })
+
       })
       totalSumOrder.innerHTML = `<span>Total:</span> ${totalPrice}$`;
       totalSum.append(totalSumOrder);
@@ -184,5 +267,90 @@ window.addEventListener('load', () => {
 
   }
   sumOrder();
+
+
+  let burgerList = document.querySelectorAll(".burger");
+  const burgerNumber = document.querySelector('.burger-number');
+  const prevButton = document.querySelector(".arrow-previous");
+  const nextButton = document.querySelector(".arrow-next");
+  const burgersCarousel = document.querySelector('#burgers-carousel');
+  const deleteBurger = document.querySelector('.delete-burger');
+
+  let currentIndex = 0;
+  burgerNumber.innerHTML = '#' + `${currentIndex + 1}`;
+
+  loadBurgerOnSlider()
+
+  deleteBurger.addEventListener('click', (e) => {
+
+    e.preventDefault();
+    // const totalBurgersCounter = document.querySelector('.header__order-counter a');
+    const activeBurger = document.querySelector('.burger.active');
+    activeBurger.remove();
+    burgerList = document.querySelectorAll(".burger")
+    currentIndex = (currentIndex - 1 + burgerList.length) % burgerList.length;
+    burgerNumber.innerHTML = '#' + `${currentIndex + 1}`;
+
+
+
+    loadBurgerOnSlider();
+    saveBurgers();
+    sumOrder();
+
+  })
+
+  nextButton.addEventListener("click", () => {
+    burgerList[currentIndex].classList.remove("active");
+    currentIndex = (currentIndex - 1 + burgerList.length) % burgerList.length;
+    loadBurgerOnSlider()
+    burgersCarousel.style.height = (burgerList[currentIndex].children.length * 40) + 'px';
+    if ((burgerList[currentIndex].children.length * 50) < 300) {
+      burgersCarousel.style.height = '300px';
+    }
+    burgerNumber.innerHTML = '#' + `${currentIndex + 1}`;
+  });
+
+  prevButton.addEventListener("click", () => {
+    burgerList[currentIndex].classList.remove("active");
+    currentIndex = (currentIndex + 1) % burgerList.length;
+    loadBurgerOnSlider()
+    burgersCarousel.style.height = (burgerList[currentIndex].children.length * 40) + 'px';
+    if ((burgerList[currentIndex].children.length * 50) < 300) {
+      burgersCarousel.style.height = '300px';
+    }
+    burgerNumber.innerHTML = '#' + `${currentIndex + 1}`;
+  });
+
+  function loadBurgerOnSlider() {
+    if (burgerList[currentIndex] == undefined) {
+      return;
+    }
+    burgerList[currentIndex].classList.add("active");
+  }
+
+
+  function saveBurgers() {
+    const burgersToLocalStorage = [];
+    const burgersToSave = document.querySelectorAll('.burger');
+    burgersToSave.forEach(burger => {
+      const ingridientsInBurger = burger.querySelectorAll('img.burger-ingridient');
+      if (ingridientsInBurger.length > 0) {
+        const burgerIngridientsArray = [];
+        ingridientsInBurger.forEach((ingridient) => {
+          const url = new URL(ingridient.src)
+          burgerIngridientsArray.push(url.pathname);
+        })
+        burgersToLocalStorage.push(burgerIngridientsArray);
+        localStorage.setItem(`burgers`, JSON.stringify(burgersToLocalStorage))
+        console.log('success')
+      }
+    })
+
+    localStorage.setItem('burgers', JSON.stringify(burgersToLocalStorage));
+
+  }
+
+
+
 
 });

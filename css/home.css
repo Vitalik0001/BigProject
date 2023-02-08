@@ -66,6 +66,10 @@ body::-webkit-scrollbar {
   display: none;
 }
 
+html {
+  background-color: #000000;
+}
+
 body {
   font-family: "Prompt", sans-serif;
   font-weight: 400;
@@ -164,6 +168,9 @@ header {
 }
 
 /* Main */
+.main {
+  margin-top: 10vh;
+}
 .main__content {
   display: flex;
   color: white;
