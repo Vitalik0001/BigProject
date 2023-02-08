@@ -262,8 +262,9 @@ header {
   backdrop-filter: blur(10px);
   top: 0;
   left: 0;
-  // opacity: 0;
-  // visibility: hidden;
+  opacity: 0;
+  visibility: hidden;
+  display: none;
   overflow-y: auto;
   overflow-x: hidden;
   transition: all 0.5s ease;
@@ -310,6 +311,9 @@ header {
     text-align: center;
     align-items: center;
     justify-content: center;
+    // .instructions__main-ok{
+    //   background-color: #000;
+    // }
   }
   &__main-clear {
     padding: 14px 49px;
@@ -335,6 +339,7 @@ header {
 .show_popup {
   opacity: 1;
   visibility: visible;
+  display: block;
 }
 
 .hide_title {
@@ -370,10 +375,11 @@ header {
   position: relative;
   margin: auto 0;
   padding-top: -50px;
+  max-width: 240px;
   @media (max-width: 550px) {
     max-height: 450px;
     rotate: 90deg;
-    max-width: 200px;
+    max-width: 220px;
     margin: 0 auto;
     margin-top: 30px;
     .draggable{
