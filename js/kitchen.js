@@ -38,7 +38,7 @@ window.addEventListener("load", () => {
   }
   function checkOrientation() {
     if (screen.height < 520) {
-      burgerMakerKitchen.style.marginTop = "25vh";
+      // burgerMakerKitchen.style.marginTop = "25vh";
     }
     if (!window.matchMedia("(orientation:portrait)").matches) {
       wrapper.style.display = "none";
