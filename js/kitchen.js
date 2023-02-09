@@ -123,7 +123,6 @@ window.addEventListener("load", () => {
     trashLid.classList.remove("trash-open");
     trashLid.classList.remove("trash-open2");
     trashLid.classList.remove("trash-open3");
-
     trashLid.classList.add("trash-closed");
     firstCalled = true;
   };
