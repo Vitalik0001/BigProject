@@ -94,6 +94,7 @@ body {
 
 /* Header */
 header {
+  // position: fixed;
   width: 100vw;
   z-index: 1000000000000000000;
 }
@@ -174,7 +175,7 @@ header {
 
 .main {
   &__container {
-    margin-top: 15vh;
+    margin-top: 12vh;
   }
 
   &__content {
@@ -598,6 +599,12 @@ input[type="number"] {
 
     &__total {
       margin: 20px 0px 40px 0px;
+    }
+  }
+
+  .main {
+    &__container {
+      margin-top: 10vh;
     }
   }
 
