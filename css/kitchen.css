@@ -873,3 +873,9 @@ header {
   height: 90vh;
   margin: auto;
 }
+
+@media (max-width: 900px) {
+  .burger-maker__kitchen {
+    margin-top: 25vh;
+  }
+}
