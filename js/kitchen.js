@@ -23,22 +23,23 @@ window.addEventListener("load", () => {
     burgerMakerKitchen = document.querySelector(".burger-maker__kitchen"),
     wrapper = document.querySelector(".wrapper");
 
-  //check phone direction
-  const rotateModal = document.querySelector(".rotate-gif-modal");
-  if (screen.height < 520) {
-    burgerMakerKitchen.style.marginTop = "17vh";
-  }
-  if (screen.height < 1200 && screen.height > 520) {
-    burgerMakerKitchen.style.marginTop = "-5vh";
-  }
-  if (window.matchMedia("(orientation:portrait)").matches) {
-    rotateModal.style.display = "block";
-    body.style.overflow = "hidden";
-    wrapper.style.display = "none";
-  }
-  function checkOrientation() {
-    if (screen.height < 520) {
-      burgerMakerKitchen.style.marginTop = "25vh";
+
+    //check phone direction
+    const rotateModal = document.querySelector('.rotate-gif-modal');
+    if (screen.height < 520)
+        burgerMakerKitchen.style.marginTop = 'calc(17vh + 80px) ';
+    if (screen.height < 1200 && screen.height > 520) {
+        burgerMakerKitchen.style.marginTop = 'calc(-5vh + 80px) ';
+    }
+    if (window.matchMedia("(orientation:portrait)").matches) {
+        rotateModal.style.display = 'block';
+        body.style.overflow = 'hidden';
+        wrapper.style.display = 'none';
+
+    }
+    function checkOrientation() {
+        if (screen.height < 520)
+            burgerMakerKitchen.style.marginTop = 'calc(17vh + 80px) ';
     }
     if (!window.matchMedia("(orientation:portrait)").matches) {
       wrapper.style.display = "none";
