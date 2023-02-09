@@ -92,7 +92,6 @@ body::-webkit-scrollbar {
 
 /* Header */
 header {
-  position: fixed;
   width: 100vw;
   z-index: 1000000000000000000;
 }
