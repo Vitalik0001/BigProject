@@ -351,7 +351,6 @@ window.addEventListener("load", () => {
         });
         burgersToLocalStorage.push(burgerIngridientsArray);
         localStorage.setItem(`burgers`, JSON.stringify(burgersToLocalStorage));
-        console.log("success");
       }
     });
 
